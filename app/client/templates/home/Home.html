@@ -1,8 +1,14 @@
 <template name="Home">
-  <img style="float:left" width="240px" class="img-circle" src="/images/meteor-logo.png" />
-  <div class="jumbotron">
 
-    <h1>Welcome to this template</h1>
-    <p>Now get to work and modify this app!</p>
-  </div>
+  <h1>Hello {{ currentUser.profile.name }} ! </h1>
+  {{#if currentUser}}
+    <button class="logout" onclick="Meteor.logout();return false;"> Logout </button>
+  {{else}}
+    {{#if login_error }}
+      <h2>Login error: {{login_error}}</h2>
+    {{/if}}
+
+    <button class="login" onclick="casLogin();"> CAS Login </button>
+
+  {{/if}}
 </template>
