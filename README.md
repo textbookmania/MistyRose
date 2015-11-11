@@ -30,4 +30,8 @@ Click the image below to watch a 10 minute walkthrough of this system.
 
 [<img src="https://raw.githubusercontent.com/ics-software-engineering/meteor-example-uh-cas/master/doc/meteor-example-uh-cas-youtube.png" width="600">](https://www.youtube.com/watch?v=HA_NAdsr-yw)
 
+## Credits
+
+Thanks to [Yongwen Xu](https://github.com/yongwen) for the sample code! 
+
 
