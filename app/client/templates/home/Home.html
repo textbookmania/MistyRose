@@ -1,14 +1,9 @@
 <template name="Home">
 
-  <h1>Hello {{ currentUser.profile.name }} ! </h1>
   {{#if currentUser}}
-    <button class="logout" onclick="Meteor.logout();return false;"> Logout </button>
+    The current user is: {{ currentUser.profile.name }}
   {{else}}
-    {{#if login_error }}
-      <h2>Login error: {{login_error}}</h2>
-    {{/if}}
-
-    <button class="login" onclick="casLogin();"> CAS Login </button>
-
+    No one is logged in.
   {{/if}}
+
 </template>
