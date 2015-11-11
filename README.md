@@ -1,5 +1,17 @@
 ![](https://raw.githubusercontent.com/ics-software-engineering/meteor-example-uh-cas/master/doc/meteor-example-uh-cas.png)
 
+## Installation
+
+Download the system, cd in the app directory, then execute:
+
+```
+meteor --settings ../config/settings.development.json
+```
+
+The settings file is needed to provide CAS parameter information.
+
+## Walkthrough
+
 Meteor-example-uh-cas is a fork of [meteor-application-template](http://ics-software-engineering.github.io/meteor-application-template/) that illustrates how to perform [University of Hawaii CAS authentication](https://www.hawaii.edu/bwiki/display/UHIAM/UH+Web+Login+Service+-+CAS+v3).
 
 This application builds upon meteor-application-template to implement CAS authentication as follows:
@@ -14,7 +26,7 @@ Checking to see that only the users specified in the settings.development.json f
 
 ## Screencast
 
-Click the image below to watch a 25 minute walkthrough of this system.
+Click the image below to watch a 10 minute walkthrough of this system.
 
 [<img src="https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template/master/doc/meteor-application-template-youtube.png" width="600">](https://www.youtube.com/watch?v=Ioe0dNyqjYg)
 
