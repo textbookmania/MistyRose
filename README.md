@@ -12,6 +12,10 @@ Third, the [settings.development.json](https://github.com/ics-software-engineeri
 
 Checking to see that only the users specified in the settings.development.json file are allowed is implemented in [Accounts.js](https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/app/server/seeds/Accounts.js). This file defines a function for validating new users that checks the user-supplied account name against the list of authorized account names in the settings file.
 
+## Screencast
 
+Click the image below to watch a 25 minute walkthrough of this system.
+
+[<img src="https://raw.githubusercontent.com/ics-software-engineering/meteor-application-template/master/doc/meteor-application-template-youtube.png" width="600">](https://www.youtube.com/watch?v=Ioe0dNyqjYg)
 
 
