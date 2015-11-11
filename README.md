@@ -4,7 +4,7 @@ Meteor-example-uh-cas is a fork of [meteor-application-template](http://ics-soft
 
 This application builds upon meteor-application-template to implement CAS authentication as follows:
 
-First, it uses [atoy40:meteor-accounts-cas](https://github.com/atoy40/meteor-accounts-cas).
+First, it uses [atoy40:meteor-accounts-cas](https://github.com/atoy40/meteor-accounts-cas). (I also had to manually add the "random" package from the meteor core.)
 
 Second, it defines a template called CasLogin in [CasLogin.html](https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/app/client/templates/application/CasLogin.html) and [CasLogin.js](https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/app/client/templates/application/CasLogin.js).  The CasLogin template is invoked in the [Header.html](https://github.com/ics-software-engineering/meteor-example-uh-cas/blob/master/app/client/templates/application/Header.html) to put the link in the navbar to login (and after successful login, to display the user name and a logout button).
 
