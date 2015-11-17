@@ -9,16 +9,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{pathFor 'Home'}}">meteor-example-uh-cas</a>
+        <a class="navbar-brand" href="{{pathFor 'Home'}}">Misty Rose Text Book Mania </a>
       </div>
 
       <ul class="collapse navbar-collapse" id="main-nav">
 
         <ul class="nav navbar-nav navbar-right">
           {{#if currentUser}}
-            <li><a href="{{ pathFor 'AddStuff' }}">Add Stuff</a></li>
-            <li><a href="{{ pathFor 'ListStuff' }}">List Stuff</a></li>
+          <li><a href="{{ pathFor 'AddStuff' }}">Add Stuff</a></li>
+          <li><a href="{{ pathFor 'ListStuff' }}">List Stuff</a></li>
           {{/if}}
+          {{#if isInRole 'admin'}}
+          <li><a href="{{ pathFor 'createtextbook' }}">Create Stuff</a></li>
+          {{/if}}
+
+
+
           {{> CasLogin }}
         </ul>
       </ul>
