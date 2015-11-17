@@ -1,11 +1,35 @@
+/**
+ *
+ */
+Meteor.publish(null, function (){
+  return Meteor.roles.find({});
+});
 
-/* Validate username, sending a specific error message on failure. */
+
+/**
+ *
+ */
 Accounts.validateNewUser(function (user) {
   if (user) {
+    var userId = user._id;
     var username = user.services.cas.id;
-    if (username && _.contains(Meteor.settings.allowed_users, username)) {
+    if (username && _.contains(Meteor.settings.allowedUsers, username)) {
+
+      var handle = Meteor.users.find({_id: userId}, {fields: {_id: 1}}).observe({
+        added: function () {
+          if (_.contains(Meteor.settings.adminUsers, user.services.cas.id)) {
+            Roles.addUsersToRoles(userId, ['admin']);
+            handle.stop();
+            handle = null;
+          }else{
+            Roles.addUsersToRoles(userId, ['student']);
+          }
+        }
+      });
+
       return true;
     }
   }
   throw new Meteor.Error(403, "User not in the allowed list");
 });
+
