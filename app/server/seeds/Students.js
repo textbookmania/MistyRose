@@ -3,8 +3,7 @@
  * @type {*[]}
  */
 var studentsSeeds = [
-  {name: "Basket", quantity: 3},
-  {name: "Bicycle", quantity: 2}
+  {first: "Corynne", last: "Umeda", email: "chumeda@hawaii.edu"},
 ];
 
 /**

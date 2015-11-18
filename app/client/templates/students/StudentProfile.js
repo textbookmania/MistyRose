@@ -1,9 +1,9 @@
-Template.ListStudents.helpers({
+Template.StudentProfile.helpers({
 
   /**
    * @returns {*} All of the Students documents.
    */
-  studentsList: function () {
+  studentProfile: function () {
     return Students.find();
   }
 });

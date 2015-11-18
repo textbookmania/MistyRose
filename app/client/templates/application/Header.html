@@ -16,8 +16,7 @@
 
         <ul class="nav navbar-nav navbar-right">
           {{#if currentUser}}
-            <li><a href="{{ pathFor 'AddStudents' }}">Add Student</a></li>
-            <li><a href="{{ pathFor 'ListStudents' }}">List Students</a></li>
+            <li><a href="{{ pathFor 'StudentProfile' }}">My Profile</a></li>
           {{/if}}
           {{> CasLogin }}
         </ul>

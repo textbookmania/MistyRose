@@ -15,7 +15,7 @@ Router.route('/', {
 });
 
 Router.route('/list', {
-  name: 'ListStudents'
+  name: 'StudentProfile'
 });
 
 Router.route('/add', {
