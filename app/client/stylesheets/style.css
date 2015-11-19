@@ -1,3 +1,9 @@
 body {
   padding-top: 70px;  /* Move body of page below navbar. */
 }
+h1 {
+  text-align: center;
+}
+.homeColumns {
+  text-align: center;
+}

@@ -1,9 +1,29 @@
 <template name="Home">
 
   {{#if currentUser}}
-    The current user is: {{ currentUser.profile.name }}
+  <div class="homeColumns">
+    <div class="container">
+      <div class="col-md-3">
+        <div class="well">
+          <p>Buy books displayed here.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="well">
+          <h1>Welcome {{ currentUser.profile.name }}!</h1>
+
+          <p>Textbook matches here.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="well">
+          <p>Books that you are selling here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
   {{else}}
-    No one is logged in.
+  Please login to continue.
   {{/if}}
 
 </template>
