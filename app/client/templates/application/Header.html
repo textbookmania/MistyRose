@@ -17,6 +17,7 @@
         <ul class="nav navbar-nav navbar-right">
           {{#if currentUser}}
             <li><a href="{{ pathFor 'StudentProfile' }}">My Profile</a></li>
+            <li><a href="{{ pathFor 'Textbooks' }}">Textbooks</a></li>
           {{/if}}
           {{#if isInRole 'admin'}}
           <li><a href="{{ pathFor 'createtextbook' }}">Create Stuff</a></li>
