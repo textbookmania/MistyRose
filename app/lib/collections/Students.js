@@ -20,8 +20,12 @@ Meteor.methods({
   editStudents: function(doc, docID) {
     check(doc, Students.simpleSchema());
     Students.update({_id: docID}, doc);
+  },
+  deleteStudents: function(docID) {
+    Students.remove(docID);
   }
-});
+  }
+);
 
 // Publish the entire Collection.  Subscription performed in the router.
 if (Meteor.isServer) {
