@@ -1,0 +1,36 @@
+<template name="ModerateTextBooks">
+  {{#IfLoggedIn}}
+  {{#if isInRole 'admin'}}
+
+  <div class="well">
+
+    <a href="{{pathFor 'AddTextBooks'}}" class="btn btn-info pull-right" role="button">Add New Textbook</a>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>ISBN</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      {{#each listTextBooks}}
+      <tr>
+        <td>{{title}}</td>
+        <td>{{author}}</td>
+        <td>{{ISBN}}</td>
+        <td><a href="{{pathFor 'EditTextBooks'}}">Edit</a></td>
+        <td> <a href="{{pathFor 'AddTextBooks'}}" class="deleteTextBook" role="button">Remove</a></td>
+
+      </tr>
+      {{/each}}
+      </tbody>
+    </table>
+
+  </div>
+  {{/if}}
+  {{/IfLoggedIn}}
+</template>
+
