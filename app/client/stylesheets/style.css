@@ -1,4 +1,56 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 body {
-  padding-top: 70px;  /* Move body of page below navbar. */
+  padding-top: 120px;  /* Move body of page below navbar. */
+  font-family: 'Open Sans', sans-serif;
+  background-color: white;
+}
+
+.col-container{
+  margin-top: 0px;
+}
+
+
+.page-banner{
+  background-image: url("/images/.jpg");
+  background-size:cover;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.navbar-inverse{
+  margin-top:-1px;
+  background-color: #000;
+  border:none;
+  border-radius: 0;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  width: 8em;
+}
+
+.well{
+  background-color: #fff;
+  color: #999;
+  padding:30px;
+}
+
+h1{
+  font-size:50px;
+  color:darkgray;
   text-align: center;
+}
+
+h4{
+  color:#000;
+  text-align: center;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus{
+  background-color:transparent;
 }

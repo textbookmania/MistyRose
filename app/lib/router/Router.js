@@ -22,6 +22,9 @@ Router.route('/add', {
   name: 'AddStudents'
 });
 
+Router.route('/create', {
+  name: 'createtextbook'
+});
 
 Router.route('/students/:_id', {
   name: 'EditStudents',

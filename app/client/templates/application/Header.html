@@ -18,6 +18,12 @@
           {{#if currentUser}}
             <li><a href="{{ pathFor 'StudentProfile' }}">My Profile</a></li>
           {{/if}}
+          {{#if isInRole 'admin'}}
+          <li><a href="{{ pathFor 'createtextbook' }}">Create Stuff</a></li>
+          {{/if}}
+
+
+
           {{> CasLogin }}
         </ul>
       </ul>
