@@ -1,0 +1,11 @@
+<template name="StudentProfile">
+  {{#IfLoggedIn}}
+    <div class="well">
+      <img src="{{ currentUser.profile.profileImage }}" class="img-rounded center-block" height="100" width="100"><br>
+      <p>First Name : {{currentUser.profile.firstName}}</p>
+      <p>Last Name : {{currentUser.profile.lastName}}</p>
+      <p>Email : {{currentUser.emails.[0].address}}</p>
+      <p><a href="{{pathFor 'EditProfile'}}">Edit</a></p>
+    </div>
+  {{/IfLoggedIn}}
+</template>

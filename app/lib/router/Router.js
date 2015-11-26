@@ -6,7 +6,6 @@
 
 Router.configure({
   layoutTemplate: 'Layout',
-  waitOn: function() { return Meteor.subscribe("Students"); },
   loadingTemplate: 'Loading'
 });
 
@@ -14,16 +13,11 @@ Router.route('/', {
   name: 'Home'
 });
 
-Router.route('/list', {
+Router.route('/MyProfile', {
   name: 'StudentProfile'
 });
 
-Router.route('/add', {
-  name: 'AddStudents'
-});
 
-
-Router.route('/students/:_id', {
-  name: 'EditStudents',
-  data: function() { return Students.findOne(this.params._id); }
+Router.route('/EditProfile', {
+  name: 'EditProfile',
 });

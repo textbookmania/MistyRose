@@ -9,3 +9,4 @@ Accounts.validateNewUser(function (user) {
   }
   throw new Meteor.Error(403, "User not in the allowed list");
 });
+
