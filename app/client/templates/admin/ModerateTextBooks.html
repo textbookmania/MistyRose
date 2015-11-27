@@ -1,36 +1,36 @@
 <template name="ModerateTextBooks">
   {{#IfLoggedIn}}
-  {{#if isInRole 'admin'}}
 
-  <div class="well">
 
-    <a href="{{pathFor 'AddTextBooks'}}" class="btn btn-info pull-right" role="button">Add New Textbook</a>
+  <a href="{{pathFor 'AddTextBooks'}}" class="btn btn-info pull-right" role="button">Add New Textbook</a>
+  {{#each listTextBooks}}
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
 
-    <table class="table">
-      <thead>
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>ISBN</th>
-      </tr>
-      </thead>
+      <div class="row">
+      <h2>{{title}}</h2>
 
-      <tbody>
-      {{#each listTextBooks}}
-      <tr>
-        <td>{{title}}</td>
-        <td>{{author}}</td>
-        <td>{{ISBN}}</td>
-        <td><a href="{{pathFor 'EditTextBooks'}}">Edit</a></td>
-        <td> <a href="{{pathFor 'AddTextBooks'}}" class="deleteTextBook" role="button">Remove</a></td>
+        <div class="col-sm-6">
+          <img src="http://placehold.it/150x150">
+        </div>
 
-      </tr>
-      {{/each}}
-      </tbody>
-    </table>
+        <div class="col-sm-6">
+          <ul>
+            <li>{{author}}</li>
+            <li>{{ISBN}}</li>
+          </ul>
+          {{#if isInRole 'admin'}}
+          <a href="{{pathFor 'EditTextBooks'}}">Edit</a>
+          <a href="{{pathFor 'AddTextBooks'}}" class="deleteTextBook" role="button">Remove</a>
+          {{/if}}
+        </div>
+      </div>
+
+    </div>
 
   </div>
-  {{/if}}
+
+  {{/each}}
   {{/IfLoggedIn}}
 </template>
 
