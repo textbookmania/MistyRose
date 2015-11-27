@@ -17,14 +17,13 @@ Router.route('/', {
   name: 'Home'
 });
 
-Router.route('/list', {
+Router.route('/MyProfile', {
   name: 'StudentProfile'
 });
 
-Router.route('/add', {
-  name: 'AddStudents'
-});
 
+Router.route('/EditProfile', {
+  name: 'EditProfile',
 Router.route('/addtextbook', {
   name: 'AddTextBooks'
 });

@@ -1,6 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
+  padding-top: 70px;  /* Move body of page below navbar. */
+}
+h1 {
+  text-align: center;
+}
+.homeColumns {
+  text-align: center;
+}
   padding-top: 120px;  /* Move body of page below navbar. */
   font-family: 'Open Sans', sans-serif;
   background-color: white;
