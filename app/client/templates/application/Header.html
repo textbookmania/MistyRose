@@ -18,10 +18,9 @@
           {{#if currentUser}}
             <li><a href="{{ pathFor 'Home' }}">Home</a></li>
           <li><a href="{{ pathFor 'StudentProfile' }}">My Profile</a></li>
-          <li><a href="{{ pathFor 'Textbooks' }}">Textbooks</a></li>
+          <li><a href="{{ pathFor 'ModerateTextBooks' }}">Textbooks</a></li>
           {{/if}}
           {{#if isInRole 'admin'}}
-          <li><a href="{{ pathFor 'ModerateTextBooks' }}">Admin</a></li>
           {{/if}}
 
 
