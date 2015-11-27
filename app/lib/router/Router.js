@@ -25,6 +25,11 @@ Router.route('/EditProfile', {
   name: 'EditProfile'
 });
 
+Router.route('/Textbooks', {
+  name: 'ModerateTextBooks'
+});
+
+
 Router.route('/AddTextbook', {
   name: 'AddTextBooks'
 });

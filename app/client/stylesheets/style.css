@@ -27,7 +27,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top {
 
 
 .navbar-inverse .navbar-nav > li > a{
-  font-family: 'mistyrose';
+  font-family: 'Crimson Text';
   font-size: 18px;
   font-weight: bold;
   color: #fff;
@@ -36,7 +36,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top {
 
 .navbar-inverse{
   margin-top:-1px;
-  background-color: #80C1CA;
+  background-color: mistyrose;
   border:none;
   border-radius: 0;
 }
@@ -53,7 +53,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top {
 }
 
 #main-nav{
-  background:#mistyrose;
+  background: mistyrose;
 }
 
 #main-nav ul{
@@ -112,5 +112,9 @@ h4{
   padding: 0;
   width:100%;
 
+}
+
+.homeColumns {
+  text-align: center;
 }
 
