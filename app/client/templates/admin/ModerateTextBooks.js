@@ -19,4 +19,4 @@ Template.ModerateTextBooks.events({
     }
   }
 
-})
+});

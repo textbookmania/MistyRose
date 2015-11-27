@@ -7,8 +7,7 @@
 Router.configure({
   layoutTemplate: 'Layout',
   waitOn: function() {
-    return [Meteor.subscribe("Students"),
-    Meteor.subscribe("Textbooks")];
+    return [Meteor.subscribe("Textbooks")];
   },
   loadingTemplate: 'Loading'
 });
@@ -17,20 +16,22 @@ Router.route('/', {
   name: 'Home'
 });
 
-Router.route('/list', {
+Router.route('/MyProfile', {
   name: 'StudentProfile'
 });
 
-Router.route('/add', {
-  name: 'AddStudents'
+
+Router.route('/EditProfile', {
+  name: 'EditProfile'
 });
 
-Router.route('/addtextbook', {
-  name: 'AddTextBooks'
-});
-
-Router.route('/admin', {
+Router.route('/Textbooks', {
   name: 'ModerateTextBooks'
+});
+
+
+Router.route('/AddTextbook', {
+  name: 'AddTextBooks'
 });
 
 Router.route('/textbooks/:_id', {
@@ -38,12 +39,3 @@ Router.route('/textbooks/:_id', {
   data: function() { return Textbooks.findOne(this.params._id); }
 });
 
-Router.route('/students/:_id', {
-  name: 'EditStudents',
-  data: function() { return Students.findOne(this.params._id); }
-});
-
-
-Router.route('/textbooks', {
-  name: 'Textbooks',
-});
