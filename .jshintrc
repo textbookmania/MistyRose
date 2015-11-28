@@ -144,6 +144,8 @@
     "textbooks"  : true,
     "Students"  : true,
     "students"  : true,
-    "Roles"  : true
+    "Roles"  : true,
+    "BuyOffers" : true,
+    "buyoffers" : true
   }
 }

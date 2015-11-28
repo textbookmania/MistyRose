@@ -7,7 +7,7 @@
 Router.configure({
   layoutTemplate: 'Layout',
   waitOn: function() {
-    return [Meteor.subscribe("Textbooks")];
+    return [Meteor.subscribe("Textbooks"), Meteor.subscribe("BuyOffers")];
   },
   loadingTemplate: 'Loading'
 });
@@ -38,4 +38,9 @@ Router.route('/textbooks/:_id', {
   name: 'EditTextBooks',
   data: function() { return Textbooks.findOne(this.params._id); }
 });
+
+Router.route('/CreateOffers', {
+  name: 'CreateOffers'
+});
+
 
