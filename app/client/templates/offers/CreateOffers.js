@@ -10,3 +10,17 @@ AutoForm.hooks({
     }
   }
 });
+
+//var getTitleOptions = function(){
+  //var options = [];
+
+  //Textbooks.find().forEach(function(doc){
+    //  options.push({label: doc.title, value:doc.title
+
+
+    //});
+  //});
+
+  //return options;
+
+//};
