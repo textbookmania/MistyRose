@@ -7,7 +7,7 @@
 Router.configure({
   layoutTemplate: 'Layout',
   waitOn: function() {
-    return [Meteor.subscribe("Textbooks"), Meteor.subscribe("BuyOffers")];
+    return [Meteor.subscribe("Textbooks"), Meteor.subscribe("BuyOffers"), Meteor.subscribe("SellOffers")];
   },
   loadingTemplate: 'Loading'
 });

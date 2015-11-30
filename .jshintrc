@@ -146,6 +146,8 @@
     "students"  : true,
     "Roles"  : true,
     "BuyOffers" : true,
-    "buyoffers" : true
+    "buyoffers" : true,
+    "SellOffers": true,
+    "selloffers": true
   }
 }
