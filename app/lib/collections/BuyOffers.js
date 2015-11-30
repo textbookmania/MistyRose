@@ -36,8 +36,8 @@ Meteor.methods({
     if (doc.offerType === 'Buy'){
       check(doc, BuyOffers.simpleSchema());
       BuyOffers.insert(doc);
-    }
 
+    }
   }
 
 });
@@ -56,14 +56,21 @@ if (Meteor.isServer) {
  * See: https://github.com/aldeed/meteor-autoform#affieldinput
  */
 BuyOffers.attachSchema(new SimpleSchema({
+
   title: {
     label: "Title",
     type: String,
     optional: false,
     autoform: {
-      placeholder: "Name of Textbook"
+      placeholder: "Name of Textbook",
+      options:function() {
+        return Textbooks.find().map(function(doc){
+          return {label: doc.title, value: doc.title};
+        });
+      }
     }
   },
+
   ISBN: {
     label: "ISBN",
     type: String,
