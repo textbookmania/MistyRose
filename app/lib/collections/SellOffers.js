@@ -2,19 +2,19 @@
  *
  * Created by Josephine on 11/18/15.
  */
-buyoffers = "BuyOffers";  // avoid typos, this string occurs many times.
+selloffers = "SellOffers";  // avoid typos, this string occurs many times.
 
-BuyOffers = new Mongo.Collection(buyoffers);
+SellOffers = new Mongo.Collection(selloffers);
 
 Meteor.methods({
   /**
-   * Invoked by AutoForm to create new sell offer record.
+   * Invoked by AutoForm to create new buy offer record.
    * @param doc The Textbooks document.
    */
-  addBuyOffers: function(doc) {
+  addSellOffers: function(doc) {
     doc.creator = Meteor.user().username;
-    check(doc, BuyOffers.simpleSchema());
-    BuyOffers.insert(doc);
+    check(doc, SellOffers.simpleSchema());
+    SellOffers.insert(doc);
   },
   /**
    *
@@ -22,50 +22,34 @@ Meteor.methods({
    * @param doc The Textbooks document.
    * @param docID It's ID.
    */
-  editBuyOffers: function(doc, docID) {
-    check(doc, BuyOffers.simpleSchema());
-    BuyOffers.update({_id: docID}, doc);
+  editSellOffers: function(doc, docID) {
+    check(doc, SellOffers.simpleSchema());
+    SellOffers.update({_id: docID}, doc);
   },
 
   /**
    *
    * @param docID
    */
-  deleteBuyOffers: function(docID) {
-    BuyOffers.remove(docID);
-  },
-
-  /**
-   *
-   * @param doc
-   */
-  createOffer: function(doc){
-    doc.creator = Meteor.user().profile.name;
-    if (doc.offerType === 'Buy'){
-      check(doc, BuyOffers.simpleSchema());
-      BuyOffers.insert(doc);
-    }else if(doc.offerType === 'Sell'){
-      check(doc, SellOffers.simpleSchema());
-      SellOffers.insert(doc);
-    }
+  deleteSellOffers: function(docID) {
+    SellOffers.remove(docID);
   }
-
 });
 
 // Publish the entire Collection.  Subscription performed in the router.
 if (Meteor.isServer) {
-  Meteor.publish(buyoffers, function () {
-    return BuyOffers.find();
+  Meteor.publish(selloffers, function () {
+    return SellOffers.find();
   });
 }
 
 
 /**
- * Create the schema for BuyOffers
+ * Create the schema for SellOffers
  * See: https://github.com/aldeed/meteor-autoform#common-questions
  * See: https://github.com/aldeed/meteor-autoform#affieldinput
  */
-BuyOffers.attachSchema(new SimpleSchema({
+SellOffers.attachSchema(new SimpleSchema({
 
   title: {
     label: "Title",
