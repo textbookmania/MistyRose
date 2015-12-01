@@ -3,15 +3,16 @@
 
 
   <a href="{{pathFor 'AddTextBooks'}}" class="btn btn-info pull-right" role="button">Add New Textbook</a>
+<div class="textbookcontainer">
   {{#each listTextBooks}}
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
 
       <div class="row">
       <h2>{{title}}</h2>
 
         <div class="col-sm-6">
-          <img src="http://placehold.it/150x150">
+            <a href="#" id="textbookimg">
+          <img src="{{cover}}"/>
+                </a>
         </div>
 
         <div class="col-sm-6">
@@ -26,11 +27,9 @@
         </div>
       </div>
 
-    </div>
-
-  </div>
 
   {{/each}}
+      </div>
   {{/IfLoggedIn}}
 </template>
 

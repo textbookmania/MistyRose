@@ -118,3 +118,23 @@ h4{
   text-align: center;
 }
 
+#textbookimg {
+  max-height: 25%;
+  display: block;
+  margin: auto;
+}
+
+.textbookcontainer {
+  height: 100%;
+  width: 100%;
+}
+.textbookcontainer .row {
+  height: 25%;
+  margin: auto;
+}
+
+.textbookcontainer .row .col-sm-6 {
+  height: 100%;
+  width: 30%;
+  float: left;
+}
