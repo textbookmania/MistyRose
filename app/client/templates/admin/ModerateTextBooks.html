@@ -2,26 +2,111 @@
   {{#IfLoggedIn}}
 
 
-  <a href="{{pathFor 'AddTextBooks'}}" class="btn btn-info pull-right" role="button">Add New Textbook</a>
+
   {{#each listTextBooks}}
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
+    <div class="col-md-6 col-md-offset-3">
 
-      <div class="row">
+      <div class="row box">
       <h2>{{title}}</h2>
 
-        <div class="col-sm-6">
-          <img src="http://placehold.it/150x150">
+        <div class="col-md-3">
+          <img src="{{cover}}" width="125px" height="145px">
         </div>
 
-        <div class="col-sm-6">
-          <ul>
-            <li>{{author}}</li>
-            <li>{{ISBN}}</li>
-          </ul>
+        <div class="col-md-9">
+
+            Author: {{author}}<br>
+            ISBN: {{ISBN}}<br>
+            Buy Offers: {{getBuyOffersCount}}<br>
+            Sell Offers: {{getSellOffersCount}}<br>
+
+          <!-- Trigger the modal with a button -->
+          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal{{ISBN}}">View
+            Offers</button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal{{ISBN}}" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Offers</h4>
+                </div>
+                <div class="modal-body">
+
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a href="#home">Home</a></li>
+                    <li><a href="#menu1">Menu 1</a></li>
+                    <li><a href="#menu2">Menu 2</a></li>
+                    <li><a href="#menu3">Menu 3</a></li>
+                  </ul>
+
+                  <div class="tab-content">
+                    <div id="home" class="tab-pane fade in active">
+                      <h3>HOME</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div id="menu1" class="tab-pane fade">
+                      {{#each listAllBuyOffers}}
+
+
+                      {{title}} | {{ISBN}} | {{condition}} | {{price}}
+
+
+                      {{/each}}
+                    </div>
+                    <div id="menu2" class="tab-pane fade">
+                      <h3>Menu 2</h3>
+                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                    </div>
+                    <div id="menu3" class="tab-pane fade">
+                      <h3>Menu 3</h3>
+                      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <p class="act"><b>Active Tab</b>: <span></span></p>
+                  <p class="prev"><b>Previous Tab</b>: <span></span></p>
+
+                  <script>
+                    $(document).ready(function(){
+                      $(".nav-tabs a").click(function(){
+                        $(this).tab('show');
+                      });
+                      $('.nav-tabs a').on('shown.bs.tab', function(event){
+                        var x = $(event.target).text();         // active tab
+                        var y = $(event.relatedTarget).text();  // previous tab
+                        $(".act span").text(x);
+                        $(".prev span").text(y);
+                      });
+                    });
+                  </script>
+
+
+
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+
           {{#if isInRole 'admin'}}
-          <a href="{{pathFor 'EditTextBooks'}}">Edit</a>
-          <a href="{{pathFor 'AddTextBooks'}}" class="deleteTextBook" role="button">Remove</a>
+
+          <button type="button" href="{{pathFor 'EditTextBooks'}}" class="editTextBook btn btn-sm btn-info">Edit</button>
+          <button type="button" href="{{pathFor 'AddTextBooks'}}" class="btn deleteTextBook btn-info btn-sm">Remove
+          </button>
+
           {{/if}}
         </div>
       </div>

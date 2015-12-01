@@ -83,7 +83,8 @@ h4{
 
 .box {
   border:2px solid mistyrose;
-  margin: 10px;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 .row h2 {
   font-size: 16px;
@@ -117,4 +118,3 @@ h4{
 .homeColumns {
   text-align: center;
 }
-
