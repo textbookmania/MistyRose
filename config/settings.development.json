@@ -12,7 +12,7 @@
       "popupHeight": 610
     }
   },
-  "allowed_users": [
+  "allowedUsers": [
     "jgarces",
     "mkshimod",
     "chumeda"
