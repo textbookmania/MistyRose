@@ -44,6 +44,7 @@ if (Meteor.isServer) {
  * See: https://github.com/aldeed/meteor-autoform#affieldinput
  */
 Textbooks.attachSchema(new SimpleSchema({
+
   title: {
     label: "Title",
     type: String,
@@ -71,6 +72,16 @@ Textbooks.attachSchema(new SimpleSchema({
     autoform: {
       group: textbooks,
       placeholder: "ISBN"
+    }
+  },
+
+  cover:{
+    label: "Cover Image",
+    type: String,
+    optional: true,
+    autoform: {
+      group: textbooks,
+      placeholder: "Cover Image of Book"
     }
   }
 

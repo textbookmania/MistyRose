@@ -41,10 +41,10 @@ Meteor.methods({
    */
   createOffer: function(doc){
     doc.creator = Meteor.user().profile.name;
-    if (doc.offerType === 'Buy'){
+    if (doc.offerType === 'Buy' && !SellOffers.findOne({title: doc.title})){
       check(doc, BuyOffers.simpleSchema());
       BuyOffers.insert(doc);
-    }else if(doc.offerType === 'Sell'){
+    }else if(doc.offerType === 'Sell' && !BuyOffers.findOne({title: doc.title})){
       check(doc, SellOffers.simpleSchema());
       SellOffers.insert(doc);
     }
@@ -84,7 +84,7 @@ BuyOffers.attachSchema(new SimpleSchema({
   ISBN: {
     label: "ISBN",
     type: String,
-    optional: false,
+    optional: true,
     autoform: {
       placeholder: "ISBN"
     }

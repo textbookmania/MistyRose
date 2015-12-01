@@ -68,7 +68,7 @@ SellOffers.attachSchema(new SimpleSchema({
   ISBN: {
     label: "ISBN",
     type: String,
-    optional: false,
+    optional: true,
     autoform: {
       placeholder: "ISBN"
     }

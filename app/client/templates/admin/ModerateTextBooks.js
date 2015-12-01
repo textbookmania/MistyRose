@@ -5,6 +5,23 @@ Template.ModerateTextBooks.helpers({
    */
   listTextBooks: function () {
     return Textbooks.find();
+  },
+
+  getBuyOffersCount: function (){
+    return BuyOffers.find({title: this.title}).count();
+
+  },
+
+  getSellOffersCount: function (){
+    return SellOffers.find({title: this.title}).count();
+  },
+
+  listAllBuyOffers: function(doc){
+    return BuyOffers.find({title: this.title});
+  },
+
+  listAllSellOffers: function(){
+    return SellOffers.find({title: this.title});
   }
 });
 
@@ -17,6 +34,11 @@ Template.ModerateTextBooks.events({
       Meteor.call("deleteTextbooks", currentContactId);
       Router.go('ModerateTextBooks');
     }
+  },
+
+  'click .editTextBook': function(e){
+    e.preventDefault();
+    Router.go('/textbooks/'+ this._id);
   }
 
 });
