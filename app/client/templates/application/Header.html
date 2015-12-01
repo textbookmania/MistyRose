@@ -1,5 +1,7 @@
 <template name="Header">
+
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
     <div class="container">
 
       <div class="navbar-header">
@@ -9,7 +11,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{pathFor 'Home'}}">Misty Rose Textbook Mania</a>
+        <a class="navbar-brand" href="{{pathFor 'Home'}}"></a>
       </div>
 
       <ul class="collapse navbar-collapse" id="main-nav">
@@ -24,12 +26,12 @@
 
           <li><a href="{{ pathFor 'CreateOffers' }}">Offers</a></li>
           {{#if isInRole 'admin'}}
-          <li class = "dropdown">
+          <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
               <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="{{ pathFor 'ModerateTextBooks' }}"></a></li>
-              <li><a href="{{pathFor 'AddTextBooks'}}" >Add New Textbook</a></li>
+              <li><a href="{{pathFor 'AddTextBooks'}}">Add New Textbook</a></li>
             </ul>
           </li>
 

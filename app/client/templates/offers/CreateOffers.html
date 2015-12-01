@@ -1,7 +1,9 @@
 <template name="CreateOffers">
   {{#IfLoggedIn}}
 
-   <div class="well">
+  <div class="container">
+    <div class="col-sm-3"></div>
+   <div class="col-sm-6">
 
      {{> quickForm
      collection="BuyOffers"
@@ -15,6 +17,8 @@
      doc=this
      buttonContent="Update"
      omitFields="creator, ISBN"}}
+  </div>
+    <div class="col-sm-3"></div>
   </div>
 
 
