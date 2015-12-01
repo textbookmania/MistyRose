@@ -51,15 +51,6 @@ if (Meteor.isServer) {
  */
 SellOffers.attachSchema(new SimpleSchema({
 
-  offerType: {
-    type:String,
-    optional:false,
-    allowedValues:['Buy', 'Sell'],
-    autoform:{
-      placeholder: "Buy or Sell?"
-    }
-  },
-
   title: {
     label: "Title",
     type: String,
@@ -73,15 +64,6 @@ SellOffers.attachSchema(new SimpleSchema({
       }
     }
   },
-
- /* ISBN: {
-    label: "ISBN",
-    type: String,
-    optional: false,
-    autoform: {
-      placeholder: "ISBN"
-    }
-  },*/
 
   condition: {
     label: "Condition",
@@ -99,6 +81,17 @@ SellOffers.attachSchema(new SimpleSchema({
     optional: false,
     autoform:{
       placeholder: "Offer"
+    }
+  },
+
+  expiration: {
+    label: "Expiration date/time",
+    type: Date,
+    optional: false,
+    autoform: {
+      afFieldInput: {
+        type: "bootstrap-datetimepicker"
+      }
     }
   },
 

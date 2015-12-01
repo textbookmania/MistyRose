@@ -67,14 +67,6 @@ if (Meteor.isServer) {
  */
 BuyOffers.attachSchema(new SimpleSchema({
 
-  offerType:{
-    type:String,
-    optional:false,
-    allowedValues:['Buy', 'Sell'],
-    autoform:{
-      placeholder: "Buy or Sell?"
-    }
-  },
   title: {
     label: "Title",
     type: String,
@@ -89,26 +81,17 @@ BuyOffers.attachSchema(new SimpleSchema({
     }
   },
 
- /* ISBN: {
-    label: "ISBN",
-    type: String,
-    optional: false,
-    autoform: {
-      placeholder: "ISBN"
-    }
-  }, */
-
   condition:{
     label: "Condition",
     type: String,
-    optional: false,
+    optional: true,
     allowedValues: ['Excellent', 'Good', 'Fair', 'Poor'],
     autoform:{
       placeholder: "Condition"
     }
   },
 
-  price:{
+  price: {
     label: "Offer",
     type: Number,
     optional: false,
@@ -116,8 +99,6 @@ BuyOffers.attachSchema(new SimpleSchema({
       placeholder: "Offer"
     }
   },
-
-
 
   creator:{
     type:String,
