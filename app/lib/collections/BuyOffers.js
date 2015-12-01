@@ -100,10 +100,20 @@ BuyOffers.attachSchema(new SimpleSchema({
     }
   },
 
+  expiration: {
+    label: "Expiration date/time",
+    type: Date,
+    optional: false,
+    autoform: {
+      afFieldInput: {
+        type: "bootstrap-datetimepicker"
+      }
+    }
+  },
+
   creator:{
     type:String,
     optional:true
   }
-
 
 }));
