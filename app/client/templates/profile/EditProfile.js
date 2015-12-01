@@ -8,6 +8,7 @@ Template.EditProfile.events({
     Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.firstName": $(e.target).find('[id=first-name]').val()}});
     Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.lastName": $(e.target).find('[id=last-name]').val()}});
 
+    Meteor.call('changeEmail', $(e.target).find('[id=input-email]').val());
     Router.go('StudentProfile');
   }
 });
