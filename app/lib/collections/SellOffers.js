@@ -86,7 +86,7 @@ SellOffers.attachSchema(new SimpleSchema({
 
   offerType:{
     type:String,
-    optional:false,
+    optional:true,
     allowedValues:['Buy', 'Sell'],
     autoform:{
       placeholder: "Buy or Sell?"

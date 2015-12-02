@@ -1,4 +1,4 @@
-Template.SellOffers.helpers({
+Template.SellOfferList.helpers({
 
   /**
    * @returns {*} All of the Stuff documents.
