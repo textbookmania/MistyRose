@@ -16,5 +16,11 @@
     "jgarces",
     "mkshimod",
     "chumeda"
+  ],
+
+  "adminUsers": [
+    "mkshimod",
+    "jgarces",
+    "chumeda"
   ]
 }

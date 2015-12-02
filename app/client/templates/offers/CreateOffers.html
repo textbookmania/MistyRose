@@ -1,9 +1,7 @@
 <template name="CreateOffers">
   {{#IfLoggedIn}}
 
-  <div class="container">
-    <div class="col-sm-3"></div>
-   <div class="col-sm-6">
+   <div class="well">
 
      {{> quickForm
      collection="BuyOffers"
@@ -16,9 +14,7 @@
      meteormethod="createOffer"
      doc=this
      buttonContent="Update"
-     omitFields="creator, ISBN"}}
-  </div>
-    <div class="col-sm-3"></div>
+     omitFields="creator"}}
   </div>
 
 

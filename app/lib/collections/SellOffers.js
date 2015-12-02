@@ -65,16 +65,7 @@ SellOffers.attachSchema(new SimpleSchema({
     }
   },
 
-  ISBN: {
-    label: "ISBN",
-    type: String,
-    optional: true,
-    autoform: {
-      placeholder: "ISBN"
-    }
-  },
-
-  condition:{
+  condition: {
     label: "Condition",
     type: String,
     optional: false,
@@ -84,7 +75,7 @@ SellOffers.attachSchema(new SimpleSchema({
     }
   },
 
-  price:{
+  price: {
     label: "Offer",
     type: Number,
     optional: false,
@@ -93,16 +84,18 @@ SellOffers.attachSchema(new SimpleSchema({
     }
   },
 
-  offerType:{
-    type:String,
-    optional:false,
-    allowedValues:['Buy', 'Sell'],
-    autoform:{
-      placeholder: "Buy or Sell?"
+  expiration: {
+    label: "Expiration date/time",
+    type: Date,
+    optional: false,
+    autoform: {
+      afFieldInput: {
+        type: "bootstrap-datetimepicker"
+      }
     }
   },
 
-  creator:{
+  creator: {
     type:String,
     optional:true
   }
