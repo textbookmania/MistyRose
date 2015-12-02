@@ -41,10 +41,10 @@ Meteor.methods({
    */
   createOffer: function(doc){
     doc.creator = Meteor.user().profile.name;
-    if (doc.offerType === 'Buy' && !SellOffers.findOne({title: doc.title})){
+    if (doc.offerType === 'Buy'){
       check(doc, BuyOffers.simpleSchema());
       BuyOffers.insert(doc);
-    }else if(doc.offerType === 'Sell' && !BuyOffers.findOne({title: doc.title})){
+    }else if(doc.offerType === 'Sell'){
       check(doc, SellOffers.simpleSchema());
       SellOffers.insert(doc);
     }
@@ -81,31 +81,33 @@ BuyOffers.attachSchema(new SimpleSchema({
     }
   },
 
-  ISBN: {
-    label: "ISBN",
-    type: String,
-    optional: true,
-    autoform: {
-      placeholder: "ISBN"
-    }
-  },
-
   condition:{
     label: "Condition",
     type: String,
-    optional: false,
+    optional: true,
     allowedValues: ['Excellent', 'Good', 'Fair', 'Poor'],
     autoform:{
       placeholder: "Condition"
     }
   },
 
-  price:{
+  price: {
     label: "Offer",
     type: Number,
     optional: false,
     autoform:{
       placeholder: "Offer"
+    }
+  },
+
+  expiration: {
+    label: "Expiration date/time",
+    type: Date,
+    optional: false,
+    autoform: {
+      afFieldInput: {
+        type: "bootstrap-datetimepicker"
+      }
     }
   },
 

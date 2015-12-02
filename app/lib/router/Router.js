@@ -43,4 +43,11 @@ Router.route('/CreateOffers', {
   name: 'CreateOffers'
 });
 
+Router.route('/buyoffers', {
+  name: 'BuyOffers'
+});
+
+Router.route('/selloffers', {
+  name: 'SellOffers'
+});
 

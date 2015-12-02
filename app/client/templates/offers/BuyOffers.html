@@ -1,0 +1,23 @@
+<template name="BuyOffers">
+  {{#IfLoggedIn}}
+
+
+  {{#each buyOfferList}}
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+
+      <div class="row">
+        {{title}}
+
+          <img src="http://placehold.it/100x100">
+
+      </div>
+
+    </div>
+
+  </div>
+
+  {{/each}}
+  {{/IfLoggedIn}}
+</template>
+

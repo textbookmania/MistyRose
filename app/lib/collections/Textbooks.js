@@ -74,14 +74,14 @@ Textbooks.attachSchema(new SimpleSchema({
       placeholder: "ISBN"
     }
   },
-
-  cover:{
-    label: "Cover Image",
+  
+  cover: {
+    label: "Cover",
     type: String,
     optional: true,
     autoform: {
       group: textbooks,
-      placeholder: "Cover Image of Book"
+      placeholder: "Cover image"
     }
   }
 

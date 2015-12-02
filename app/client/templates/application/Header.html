@@ -23,6 +23,22 @@
 
 
           <li><a href="{{ pathFor 'CreateOffers' }}">Offers</a></li>
+
+              <li>
+                  <a href="#">
+                      <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                              Offers
+                              <b class="caret"></b>
+                          </a>
+                          <div class="dropdown-menu">
+                              <li><a href="{{ pathFor 'BuyOffers' }}">Buy Offer</a></li>
+                              <li><a href="{{ pathFor 'SellOffers' }}">Sell Offer</a></li>
+                          </div>
+                      </li>
+                  </a>
+              </li>
+          {{/if}}
           {{#if isInRole 'admin'}}
           <li class = "dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin

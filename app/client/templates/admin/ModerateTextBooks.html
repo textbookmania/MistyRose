@@ -10,11 +10,15 @@
       <div class="row box">
       <h2>{{title}}</h2>
 
-        <div class="col-md-3">
-          <img src="{{cover}}" width="125px" height="145px">
+        <div class="col-sm-6">
+            <div class="ListTextbookImage">
+            <a href="#">
+          <img src="{{cover}}"/>
+                </a>
+            </div>
         </div>
 
-        <div class="col-md-9">
+        <div class="col-sm-6">
 
             Author: {{author}}<br>
             ISBN: {{ISBN}}<br>
@@ -111,11 +115,9 @@
         </div>
       </div>
 
-    </div>
-
-  </div>
 
   {{/each}}
+      </div>
   {{/IfLoggedIn}}
 </template>
 
