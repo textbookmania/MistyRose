@@ -12,7 +12,7 @@ Meteor.methods({
    * @param doc The Textbooks document.
    */
   addSellOffers: function(doc) {
-    doc.creator = Meteor.user().username;
+    doc.creator = Meteor.user().profile.name;
     check(doc, SellOffers.simpleSchema());
     SellOffers.insert(doc);
   },
@@ -84,19 +84,10 @@ SellOffers.attachSchema(new SimpleSchema({
     }
   },
 
-  offerType:{
-    type:String,
-    optional:true,
-    allowedValues:['Buy', 'Sell'],
-    autoform:{
-      placeholder: "Buy or Sell?"
-    }
-  },
-
   expiration: {
     label: "Expiration date/time",
     type: Date,
-    optional: false,
+    optional: true,
     autoform: {
       afFieldInput: {
         type: "bootstrap-datetimepicker"

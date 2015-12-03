@@ -17,7 +17,7 @@ var textbooksSeeds = [
   {title: "Digital Logic Design: A Rigorous Approach", author: "Guy Even", ISBN: "9781107027534", cover: "http://images.amazon.com/images/P1107027535.01.LZ.jpg"},
   {title: "Operating System Concepts", author: "Abraham Silberschatz", ISBN: "9781118063330", cover: "http://images.amazon.com/images/P1118063333.01.LZ.jpg"},
   {title: "Ethics for the Information Age (5th Edition)", author: "Michael J. Quinn", ISBN: "9780132855532", cover: "http://images.amazon.com/images/P0132855534.01.LZ.jpg"},
-  {title: "Artificial Intelligence for Games. CRC Press. 2009.", author: "", ISBN: "9780123747310", cover: "http://images.amazon.com/images/P0123747317.01.LZ.jpg"}
+  {title: "Artificial Intelligence for Games. CRC Press. 2009.", author: "Ian Millington", ISBN: "9780123747310", cover: "http://images.amazon.com/images/P0123747317.01.LZ.jpg"}
 ];
 
 if (Textbooks.find().count() === 0) {

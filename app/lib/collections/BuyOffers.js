@@ -6,13 +6,15 @@ buyoffers = "BuyOffers";  // avoid typos, this string occurs many times.
 
 BuyOffers = new Mongo.Collection(buyoffers);
 
+
+
 Meteor.methods({
   /**
    * Invoked by AutoForm to create new sell offer record.
    * @param doc The Textbooks document.
    */
   addBuyOffers: function(doc) {
-    doc.creator = Meteor.user().username;
+    doc.creator = Meteor.user().profile.name;
     check(doc, BuyOffers.simpleSchema());
     BuyOffers.insert(doc);
   },
@@ -33,21 +35,6 @@ Meteor.methods({
    */
   deleteBuyOffers: function(docID) {
     BuyOffers.remove(docID);
-  },
-
-  /**
-   *
-   * @param doc
-   */
-  createOffer: function(doc){
-    doc.creator = Meteor.user().profile.name;
-    if (doc.offerType === 'Buy'){
-      check(doc, BuyOffers.simpleSchema());
-      BuyOffers.insert(doc);
-    }else if(doc.offerType === 'Sell'){
-      check(doc, SellOffers.simpleSchema());
-      SellOffers.insert(doc);
-    }
   }
 
 });
@@ -103,7 +90,7 @@ BuyOffers.attachSchema(new SimpleSchema({
   expiration: {
     label: "Expiration date/time",
     type: Date,
-    optional: false,
+    optional: true,
     autoform: {
       afFieldInput: {
         type: "bootstrap-datetimepicker"
@@ -111,19 +98,9 @@ BuyOffers.attachSchema(new SimpleSchema({
     }
   },
 
-  offerType:{
-    type:String,
-    optional:true,
-    allowedValues:['Buy', 'Sell'],
-    autoform:{
-      placeholder: "Buy or Sell?"
-    }
-  },
-
   creator:{
     type:String,
     optional:true
   }
-
 
 }));

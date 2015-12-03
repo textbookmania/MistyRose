@@ -39,9 +39,6 @@ Router.route('/textbooks/:_id', {
   data: function() { return Textbooks.findOne(this.params._id); }
 });
 
-Router.route('/CreateOffers', {
-  name: 'CreateOffers'
-});
 
 Router.route('/buyoffers', {
   name: 'BuyOffers'
