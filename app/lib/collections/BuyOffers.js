@@ -81,6 +81,7 @@ BuyOffers.attachSchema(new SimpleSchema({
   price: {
     label: "Offer",
     type: Number,
+    decimal:false,
     optional: false,
     autoform:{
       placeholder: "Offer"
