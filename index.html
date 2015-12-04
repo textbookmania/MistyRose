@@ -1,73 +1,74 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Mistyrose : ">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Mistyrose</title>
+    <meta charset="UTF-8">
+    <title>Textbook Exchange - MistyRose by textbookmania</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">Textbook Exchange - MistyRose</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/textbookmania/MistyRose" class="btn">View on GitHub</a>
+      <a href="https://github.com/textbookmania/MistyRose/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/textbookmania/MistyRose/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/textbookmania/MistyRose">View on GitHub</a>
+    <section class="main-content">
+      <h1>
+<a id="textbook-exchange---mistyrose" class="anchor" href="#textbook-exchange---mistyrose" aria-hidden="true"><span class="octicon octicon-link"></span></a>Textbook Exchange - MistyRose</h1>
 
-          <h1 id="project_title">Mistyrose</h1>
-          <h2 id="project_tagline"></h2>
+<p>by Josephine Garces, Michele Shimoda, and Corynne Umeda under the instruction of Dr. Philip Johnson.</p>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/textbookmania/MistyRose/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/textbookmania/MistyRose/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+<p>Textbook Exchange is a Meteor web application designed for ICS students at the University of Hawai'i at Manoa that allows them to exchange textbooks used in their curriculum.  The app is initialized with a listing of textbooks used in the ICS curriculum, as well as a few buying and selling offers. </p>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a id="mistyrose" class="anchor" href="#mistyrose" aria-hidden="true"><span class="octicon octicon-link"></span></a>MistyRose</h1>
+<p>Users of this app are able to:</p>
+
+<ul>
+<li>
+<em>Sell a textbook:</em> Users can put up an offer to sell their textbook, given that it exists in the directory of textbooks.</li>
+<li>
+<em>Buy a textbook:</em> Users can make an offer to buy a textbook that is on the list of books in the app.</li>
+<li>
+<em>Contact potential buyers/sellers:</em> Users that opt to be contacted may be contacted by other users to complete the textbook exchange.</li>
+</ul>
 
 <h1>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h1>
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick Start</h1>
 
-<p>Invoke the application for the first time using:</p>
+<p><em>Note:</em> Before diving into the application, you may want to familiarize yourself with <a href="https://www.meteor.com/">Meteor</a>.</p>
+
+<ul>
+<li><p>Download the latest version of the application at: <a href="https://github.com/textbookmania/MistyRose">https://github.com/textbookmania/MistyRose</a></p></li>
+<li><p>Invoke the application for the first time using:</p></li>
+</ul>
 
 <pre><code>meteor --settings ../config/settings.development.json
 </code></pre>
 
-<p>In production, use</p>
+<ul>
+<li>In production, use</li>
+</ul>
 
 <pre><code>meteor --settings ../config/settings.production.json
 </code></pre>
 
-<p>The settings file is needed to provide CAS parameter information. Note that you won't be able to successfully login until you edit the settings.development.json file to indicate that your UH account should be one of those allowed to login.</p>
-
-<h1>
-<a id="application-screenshots" class="anchor" href="#application-screenshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Application Screenshots</h1>
-
-<h1>
-<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h1>
+<p><em>Note:</em> The settings file is needed to provide CAS parameter information. Note that you won't be able to successfully login until you edit the settings.development.json file to indicate that your UH account should be one of those allowed to login.</p>
 
 <p>Uses the <a href="http://ics-software-engineering.github.io/meteor-application-template/">meteor-application-template</a>.</p>
-      </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Mistyrose maintained by <a href="https://github.com/textbookmania">textbookmania</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/textbookmania/MistyRose">Textbook Exchange - MistyRose</a> is maintained by <a href="https://github.com/textbookmania">textbookmania</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-    
+    </section>
 
+  
   </body>
 </html>
