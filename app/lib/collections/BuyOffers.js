@@ -61,8 +61,14 @@ BuyOffers.attachSchema(new SimpleSchema({
     autoform: {
       placeholder: "Title",
       options:function() {
-        return Textbooks.find().map(function(doc){
-          return {label: doc.title, value: doc.title};
+
+        var sellOffers = SellOffers.find({creator: Meteor.user().profile.name}).map(function(object){return object.title;});
+        var currentOffers = BuyOffers.find({creator: Meteor.user().profile.name}).map(function(object){return object.title;});
+        var allTitles = Textbooks.find().map(function(object){return object.title;});
+
+        var allowed = _.difference(allTitles, sellOffers, currentOffers);
+        return allowed.map(function(doc){
+          return {label: doc, value: doc};
         });
       }
     }
