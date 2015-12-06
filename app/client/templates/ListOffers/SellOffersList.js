@@ -1,9 +1,11 @@
 Template.SellOfferList.helpers({
 
-  /**
-   * @returns {*} All of the Stuff documents.
-   */
   sellOfferList: function () {
     return SellOffers.find({creator:Meteor.user().profile.name});
+  },
+
+  listBuyMatches: function () {
+
+    return BuyOffers.find({title: this.title});
   }
 });

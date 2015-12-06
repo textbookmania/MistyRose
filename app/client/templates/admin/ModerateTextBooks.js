@@ -3,6 +3,12 @@ Template.ModerateTextBooks.helpers({
   /**
    * @returns {*} All of the Stuff documents.
    */
+
+  hasOffers: function () {
+    return BuyOffers.find({title: this.title}).count() !== 0 && SellOffers.find({title: this.title}).count() !== 0;
+
+  },
+
   listTextBooks: function () {
     return Textbooks.find();
   },
@@ -16,7 +22,7 @@ Template.ModerateTextBooks.helpers({
     return SellOffers.find({title: this.title}).count();
   },
 
-  listAllBuyOffers: function(doc){
+  listAllBuyOffers: function(){
     return BuyOffers.find({title: this.title});
   },
 

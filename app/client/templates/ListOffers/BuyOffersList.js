@@ -5,5 +5,10 @@ Template.BuyOfferList.helpers({
    */
   buyOfferList: function () {
     return BuyOffers.find({creator:Meteor.user().profile.name});
+  },
+
+  listSellMatches:function() {
+    return SellOffers.find({title: this.title});
   }
+
 });

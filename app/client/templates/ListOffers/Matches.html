@@ -1,0 +1,137 @@
+<template name="Matches">
+  {{#IfLoggedIn}}
+
+  <div class="row">
+    <h2>Your Matches!</h2>
+    <div class="col-md-12">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#home{{ISBN}}">Buy Offers</a></li>
+        <li><a href="#menu1{{ISBN}}">Sell Offers</a></li>
+
+      </ul>
+      <div class="tab-content">
+        <div id="home{{ISBN}}" class="tab-pane fade in active">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <th>Title</th>
+              <th>Edit</th>
+              <th>Delete</th>
+              <th>Matches</th>
+            </tr>
+
+            {{#each buyOfferList}}
+            <tr>
+              <td>{{title}}</td>
+              <td><button type="button" href="{{pathFor 'EditBuyOffers'}}" class="editBuyOffer btn btn-sm btn-info">Edit</button></td>
+              <td><button type="button" href="{{pathFor 'EditBuyOffers'}}"
+                          class="btn deleteBuyOffer btn-info btn-sm">Remove
+              </button></td>
+              <td>
+                <!-- Modal -->
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal{{_id}}">View
+                  {{sellMatchesCount}} Offer(s)</button>
+                <div class="modal fade" id="myModal{{_id}}" role="dialog">
+                  <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Offers</h4>
+                      </div>
+                      <div class="modal-body">
+
+                        {{#each listSellMatches}}
+
+                        {{title}}<br>
+
+                        {{/each}}
+
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </td>
+            </tr>
+            {{/each}}
+            </tbody>
+          </table>
+        </div>
+
+        <div id="menu1{{ISBN}}" class="tab-pane fade">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <th>Title</th>
+              <th>Edit</th>
+              <th>Delete</th>
+              <th>Matches</th>
+            </tr>
+
+            {{#each sellOfferList}}
+            <tr>
+              <td>{{title}}</td>
+              <td><button type="button" href="{{pathFor 'EditBuyOffers'}}" class="editBuyOffer btn btn-sm btn-info">Edit</button></td>
+              <td><button type="button" href="{{pathFor 'EditBuyOffers'}}"
+                          class="btn deleteBuyOffer btn-info btn-sm">Remove
+              </button></td>
+              <td>
+                <!-- Modal -->
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+                        data-target="#myModal{{_id}}1">View
+                  {{buyMatchesCount}} Offer(s)</button>
+                <div class="modal fade" id="myModal{{_id}}1" role="dialog">
+                  <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Offers</h4>
+                      </div>
+                      <div class="modal-body">
+
+                        {{#each listBuyMatches}}
+
+                        {{title}}<br>
+
+                        {{/each}}
+
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </td>
+            </tr>
+            {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <script>
+        $(document).ready(function(){
+          $(".nav-tabs a").click(function(){
+            $(this).tab('show');
+          });
+          $('.nav-tabs a').on('shown.bs.tab', function(event){
+            var x = $(event.target).text();         // active tab
+            var y = $(event.relatedTarget).text();  // previous tab
+            $(".act span").text(x);
+            $(".prev span").text(y);
+          });
+        });
+      </script>
+    </div>
+  </div>
+
+  {{/IfLoggedIn}}
+</template>
