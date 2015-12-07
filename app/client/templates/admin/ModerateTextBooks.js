@@ -5,7 +5,7 @@ Template.ModerateTextBooks.helpers({
    */
 
   hasOffers: function () {
-    return BuyOffers.find({title: this.title}).count() !== 0 || SellOffers.find({title: this.title}).count() !== 0;
+    return BuyOffers.find({title: this.title, accepted: false}).count() !== 0 || SellOffers.find({title: this.title, accepted: false}).count() !== 0;
 
   },
 
@@ -14,20 +14,20 @@ Template.ModerateTextBooks.helpers({
   },
 
   getBuyOffersCount: function (){
-    return BuyOffers.find({title: this.title}).count();
+    return BuyOffers.find({title: this.title, accepted: false}).count();
 
   },
 
   getSellOffersCount: function (){
-    return SellOffers.find({title: this.title}).count();
+    return SellOffers.find({title: this.title, accepted: false}).count();
   },
 
   listAllBuyOffers: function(){
-    return BuyOffers.find({title: this.title});
+    return BuyOffers.find({title: this.title, accepted: false});
   },
 
   listAllSellOffers: function(){
-    return SellOffers.find({title: this.title});
+    return SellOffers.find({title: this.title, accepted: false});
   }
 });
 
