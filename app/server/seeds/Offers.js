@@ -1,7 +1,7 @@
 
 
 var buyoffersSeeds = [
-  {title:"Java Concepts: Compatible with Java 5, 6 and 7", ISBN:"", condition:"Good", price:5, offerType:"Buy", creator:"Jack", accepted: false},
+  {title:"Java Concepts: Compatible with Java 5, 6 and 7", ISBN:"", condition:"Good", price:5, offerType:"Buy", creator:"Mil", accepted: false},
   {title:"Java Concepts: Compatible with Java 5, 6 and 7", ISBN:"", condition:"Good", price:5, offerType:"Buy", creator:"jgarces", seller:"Jack", accepted: true},
   {title:"Discrete Mathematics and Its Applications Seventh Edition", ISBN:"", condition:"Excellent", price:10, offerType:"Buy", creator:"Jill", accepted: false},
   {title:"The C Programming Language", ISBN:"", condition:"Good", price:10, offerType:"Buy", creator:"Mary", accepted: false},
