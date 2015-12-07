@@ -15,6 +15,7 @@ Meteor.methods({
    */
   addBuyOffers: function(doc) {
     doc.creator = Meteor.user().profile.name;
+    doc.accepted = false;
     check(doc, BuyOffers.simpleSchema());
     BuyOffers.insert(doc);
   },
@@ -35,6 +36,12 @@ Meteor.methods({
    */
   deleteBuyOffers: function(docID) {
     BuyOffers.remove(docID);
+  },
+
+
+  acceptBuyOffer: function(docID, seller) {
+    BuyOffers.update({_id: docID}, {$set: {accepted: true}});
+    BuyOffers.update({_id: docID}, {$set: {seller: seller}});
   }
 
 });
@@ -106,6 +113,16 @@ BuyOffers.attachSchema(new SimpleSchema({
   },
 
   creator:{
+    type:String,
+    optional:true
+  },
+
+  accepted:{
+    type: Boolean,
+    optional:true
+  },
+
+  seller: {
     type:String,
     optional:true
   }

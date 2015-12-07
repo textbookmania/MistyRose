@@ -5,7 +5,7 @@ Template.ModerateTextBooks.helpers({
    */
 
   hasOffers: function () {
-    return BuyOffers.find({title: this.title}).count() !== 0 && SellOffers.find({title: this.title}).count() !== 0;
+    return BuyOffers.find({title: this.title}).count() !== 0 || SellOffers.find({title: this.title}).count() !== 0;
 
   },
 

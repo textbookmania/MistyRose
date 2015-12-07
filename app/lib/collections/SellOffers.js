@@ -13,6 +13,7 @@ Meteor.methods({
    */
   addSellOffers: function(doc) {
     doc.creator = Meteor.user().profile.name;
+    doc.accepted = false;
     check(doc, SellOffers.simpleSchema());
     SellOffers.insert(doc);
   },
@@ -33,7 +34,12 @@ Meteor.methods({
    */
   deleteSellOffers: function(docID) {
     SellOffers.remove(docID);
+  },
+
+  acceptSellOffer: function(title) {
+    SellOffers.update({creator: Meteor.user().profile.name, title:title}, {$set: {accepted: true}});
   }
+
 });
 
 // Publish the entire Collection.  Subscription performed in the router.
@@ -104,7 +110,10 @@ SellOffers.attachSchema(new SimpleSchema({
   creator:{
     type:String,
     optional:true
+  },
+
+  accepted:{
+    type: Boolean,
+    optional:true
   }
-
-
 }));

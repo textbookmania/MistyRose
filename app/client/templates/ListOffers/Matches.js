@@ -18,17 +18,22 @@ Template.Matches.helpers({
 
 
   sellOfferList: function () {
-    return SellOffers.find({creator:Meteor.user().profile.name});
+    return SellOffers.find({creator:Meteor.user().profile.name, accepted:false});
   },
 
   listBuyMatches: function () {
 
-    return BuyOffers.find({title: this.title});
+    return BuyOffers.find({title: this.title, accepted:false});
   },
 
   buyMatchesCount: function () {
 
-    return BuyOffers.find({title: this.title}).count();
+    return BuyOffers.find({title: this.title, accepted:false}).count();
+  },
+
+  acceptedMessages: function() {
+
+    return BuyOffers.find({creator: Meteor.user().profile.name, accepted: true});
   }
 });
 
@@ -61,6 +66,19 @@ Template.Matches.events({
       var offerId = this._id;
       Meteor.call("deleteSellOffers", offerId);
       Router.go('Home');
+    }
+  },
+
+  'click .acceptBuyOffer': function(e){
+    e.preventDefault();
+    if (confirm("Accept "+ this.creator +'s offer?')){
+      var offerId = this._id;
+      var offerTitle = this.title;
+      var seller = Meteor.user().profile.name;
+      Meteor.call("acceptBuyOffer", offerId, seller);
+      Meteor.call("acceptSellOffer", offerTitle);
+      Router.go('Home');
+      window.location.reload();
     }
   }
 

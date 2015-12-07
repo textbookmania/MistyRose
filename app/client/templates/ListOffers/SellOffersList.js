@@ -6,6 +6,6 @@ Template.SellOfferList.helpers({
 
   listBuyMatches: function () {
 
-    return BuyOffers.find({title: this.title});
+    return BuyOffers.find({title: this.title, accepted: false});
   }
 });

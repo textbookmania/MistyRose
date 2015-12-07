@@ -8,7 +8,7 @@ Template.BuyOfferList.helpers({
   },
 
   listSellMatches:function() {
-    return SellOffers.find({title: this.title});
+    return SellOffers.find({title: this.title, accepted: false});
   }
 
 });

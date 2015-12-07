@@ -5,12 +5,20 @@
     <h2>Your Matches!</h2>
     <div class="col-md-12">
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#home{{ISBN}}">Buy Offers</a></li>
-        <li><a href="#menu1{{ISBN}}">Sell Offers</a></li>
+        <li class="active"><a href="#home{{ISBN}}">Notifications</a></li>
+        <li><a href="#menu1{{ISBN}}">Buy Offers</a></li>
+        <li><a href="#menu2{{ISBN}}">Sell Offers</a></li>
 
       </ul>
       <div class="tab-content">
-        <div id="home{{ISBN}}" class="tab-pane fade in active">
+        <div id="home{{ISBN}}" class="tab-pane in active">
+
+          {{#each acceptedMessages}}
+          {{seller}} has accepted your offer!
+          {{/each}}
+
+        </div>
+        <div id="menu1{{ISBN}}" class="tab-pane fade">
           <table class="table table-striped">
             <tbody>
             <tr>
@@ -41,13 +49,24 @@
                         <h4 class="modal-title">Offers</h4>
                       </div>
                       <div class="modal-body">
+                        <table class="table table-striped">
+                          <tbody>
+                          <tr>
+                            <th>Title</th>
+                            <th>Condition</th>
+                            <th>Price</th>
+                          </tr>
 
                         {{#each listSellMatches}}
-
-                        {{title}}<br>
-
+                          <tr>
+                            <td>{{title}}</td>
+                            <td>{{condition}} </td>
+                            <td>{{price}}</td>
+                            <td></td>
+                          </tr>
                         {{/each}}
-
+                          </tbody>
+                        </table>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
@@ -63,7 +82,7 @@
           </table>
         </div>
 
-        <div id="menu1{{ISBN}}" class="tab-pane fade">
+        <div id="menu2{{ISBN}}" class="tab-pane fade">
           <table class="table table-striped">
             <tbody>
             <tr>
@@ -95,13 +114,28 @@
                         <h4 class="modal-title">Offers</h4>
                       </div>
                       <div class="modal-body">
-
+                        <table class="table table-striped">
+                          <tbody>
+                          <tr>
+                            <th>Title</th>
+                            <th>Condition</th>
+                            <th>Price</th>
+                            <th>Accept</th>
+                          </tr>
                         {{#each listBuyMatches}}
-
-                        {{title}}<br>
-
+                          <tr>
+                            <td>{{title}}</td>
+                            <td>{{condition}} </td>
+                            <td>{{price}}</td>
+                            <td>
+                              <button type="button" href="{{pathFor 'EditBuyOffers'}}"
+                                        class="btn acceptBuyOffer btn-info btn-sm">Accept
+                            </button>
+                            </td>
+                          </tr>
                         {{/each}}
-
+                          </tbody>
+                        </table>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
