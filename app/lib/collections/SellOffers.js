@@ -37,7 +37,7 @@ Meteor.methods({
   },
 
   acceptSellOffer: function(title) {
-    SellOffers.update({creator: Meteor.user().profile.name, title:title}, {$set: {accepted: true}});
+    SellOffers.update({title:title, creator: Meteor.user().profile.name}, {$set: {accepted: true}});
   }
 
 });
