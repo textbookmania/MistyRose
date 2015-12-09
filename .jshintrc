@@ -148,6 +148,7 @@
     "BuyOffers" : true,
     "buyoffers" : true,
     "SellOffers": true,
-    "selloffers": true
+    "selloffers": true,
+    "sweetAlert": true
   }
 }
