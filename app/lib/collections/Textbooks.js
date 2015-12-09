@@ -49,6 +49,7 @@ Textbooks.attachSchema(new SimpleSchema({
     label: "Title",
     type: String,
     optional: false,
+    unique: true,
     autoform: {
       group: textbooks,
       placeholder: "Name of textbook"
@@ -68,6 +69,7 @@ Textbooks.attachSchema(new SimpleSchema({
     label: "ISBN",
     type: String,
     optional: false,
+    unique: true,
     max: 50,
     autoform: {
       group: textbooks,
