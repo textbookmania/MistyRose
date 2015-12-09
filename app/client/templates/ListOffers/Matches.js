@@ -51,22 +51,38 @@ Template.Matches.events({
 
   'click .deleteBuyOffer': function(e) {
     e.preventDefault();
-
-    if (confirm("Delete this offer?")) {
-      var offerId = this._id;
-      Meteor.call("deleteBuyOffers", offerId);
-      Router.go('Home');
-    }
+    var offerId = this._id;
+    sweetAlert(
+        {title: "Are you sure?",
+          text: "",
+          type: "warning",   showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Yes, delete it!",
+          closeOnConfirm: false},
+        function(isConfirm){
+          if(isConfirm) {
+            sweetAlert("Deleted!", "Offer has been deleted.");
+            Meteor.call("deleteBuyOffers", offerId);
+          }
+        });
   },
 
   'click .deleteSellOffer': function(e) {
     e.preventDefault();
-
-    if (confirm("Delete this book?")) {
-      var offerId = this._id;
-      Meteor.call("deleteSellOffers", offerId);
-      Router.go('Home');
-    }
+    var offerId = this._id;
+    sweetAlert(
+        {title: "Are you sure?",
+          text: "",
+          type: "warning",   showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Yes, delete it!",
+          closeOnConfirm: false},
+        function(isConfirm){
+          if(isConfirm) {
+            sweetAlert("Deleted!", "Offer has been deleted.");
+            Meteor.call("deleteSellOffers", offerId);
+          }
+        });
   },
 
   'click .acceptBuyOffer': function(e){
