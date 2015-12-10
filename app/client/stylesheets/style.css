@@ -176,16 +176,27 @@ h3{
   float: left;
 }
 
-<<<<<<< HEAD
 .no-matches{
   font-size: 20px;
 }
-=======
 .welcome {
-  background-image: url("/images/textbookBag.jpg");
   background-size: cover;
   min-width: 500px;
   min-height: 500px;
+  display: block;
+  position: relative;
+}
+.welcome:before{
+  content: "";
+  background-image: url("/images/textbookBag.jpg");
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  opacity: .75;
+  position: absolute;
+  background-size: cover;
 }
 
 .textbookWelcome{
@@ -309,13 +320,3 @@ h3{
   color: #3A3A3A;
 }
 
-#buyOffersHome{
-  background-color: mistyrose;
-}
-#sellOffersHome{
-  background-color: lightgray;
-}
-#matchesHome {
-  background-color: mistyrose;
-}
->>>>>>> layout-cu-1
