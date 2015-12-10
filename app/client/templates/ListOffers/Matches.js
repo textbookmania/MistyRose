@@ -8,12 +8,23 @@ Template.Matches.helpers({
   },
 
   listSellMatches:function() {
-    return SellOffers.find({title: this.title, accepted: false});
+    if (this.condition === "Any"){
+      return SellOffers.find({title: this.title, accepted: false});
+    }else{
+      return SellOffers.find({title: this.title, condition: this.condition, accepted: false});
+    }
   },
 
   sellMatchesCount:function () {
+    if (this.condition === "Any"){
+      return SellOffers.find({title: this.title, accepted: false}).count();
+    }else{
+      return SellOffers.find({title: this.title, condition: this.condition, accepted: false}).count();
+    }
+  },
 
-    return SellOffers.find({title: this.title, accepted:false}).count();
+  hasSellMatches: function(){
+    return SellOffers.find({title: this.title, accepted:false}).count() !== 0;
   },
 
 
@@ -23,12 +34,17 @@ Template.Matches.helpers({
 
   listBuyMatches: function () {
 
-    return BuyOffers.find({title: this.title, accepted:false});
+    return BuyOffers.find({title: this.title, $or: [{condition: this.condition},{condition: "Any"}], accepted: false});
+
   },
 
   buyMatchesCount: function () {
 
-    return BuyOffers.find({title: this.title, accepted:false}).count();
+    return BuyOffers.find({title: this.title, $or: [{condition: this.condition},{condition: "Any"}], accepted: false}).count();
+  },
+
+  hasBuyMatches: function (){
+      return BuyOffers.find({title: this.title, accepted:false}).count() !== 0;
   },
 
   acceptedMessages: function() {
@@ -87,15 +103,25 @@ Template.Matches.events({
 
   'click .acceptBuyOffer': function(e){
     e.preventDefault();
-    if (confirm("Accept "+ this.creator +'s offer?')){
-      var offerId = this._id;
-      var offerTitle = this.title;
-      var seller = Meteor.user().profile.name;
-      Meteor.call("acceptBuyOffer", offerId, seller);
-      Meteor.call("acceptSellOffer", offerTitle);
-      Router.go('Home');
-      window.location.reload();
-    }
+    var offerId = this._id;
+    var offerTitle = this.title;
+    var seller = Meteor.user().profile.name;
+
+    sweetAlert(
+        {title: "Accept "+ this.creator +"s offer?",
+          text: "",
+          type: "warning",   showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Accept",
+          closeOnConfirm: false},
+        function(isConfirm){
+          if(isConfirm) {
+            Meteor.call("acceptBuyOffer", offerId, seller);
+            Meteor.call("acceptSellOffer", offerTitle);
+            Router.go('Home');
+            window.location.reload();
+          }
+        });
   }
 
 });

@@ -38,6 +38,10 @@ Meteor.methods({
 
   acceptSellOffer: function(title) {
     SellOffers.update({title:title, creator: Meteor.user().profile.name}, {$set: {accepted: true}});
+  },
+
+  deleteAssociatedSellOffers: function(title){
+    SellOffers.remove({title: title});
   }
 
 });

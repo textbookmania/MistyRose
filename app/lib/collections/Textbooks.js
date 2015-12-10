@@ -43,6 +43,7 @@ Meteor.methods({
      */
     editTextbooks: function(doc, docID) {
       check(doc, Textbooks.simpleSchema());
+
       Textbooks.update({_id: docID}, doc);
     },
     deleteTextbooks: function(docID) {

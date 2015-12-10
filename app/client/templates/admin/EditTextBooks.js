@@ -6,6 +6,7 @@ AutoForm.hooks({
      * @param result The result of form submission.
      */
     onSuccess: function(formType, result) {
+      sweetAlert("Textbook record has been updated.");
       Router.go('ModerateTextBooks');
     }
   }

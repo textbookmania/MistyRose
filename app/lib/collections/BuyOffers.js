@@ -42,6 +42,10 @@ Meteor.methods({
   acceptBuyOffer: function(docID, seller) {
     BuyOffers.update({_id: docID}, {$set: {accepted: true}});
     BuyOffers.update({_id: docID}, {$set: {seller: seller}});
+  },
+
+  deleteAssociatedBuyOffers: function(title){
+    BuyOffers.remove({title: title});
   }
 
 });
@@ -85,7 +89,7 @@ BuyOffers.attachSchema(new SimpleSchema({
     label: "Condition",
     type: String,
     optional: true,
-    allowedValues: ['Excellent', 'Good', 'Fair', 'Poor'],
+    allowedValues: ['Excellent', 'Good', 'Fair', 'Poor', 'Any'],
     autoform:{
       placeholder: "Condition"
     }

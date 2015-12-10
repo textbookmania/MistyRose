@@ -34,12 +34,27 @@ Template.ModerateTextBooks.helpers({
 Template.ModerateTextBooks.events({
   'click .deleteTextBook': function(e) {
     e.preventDefault();
+    var currentContactId = this._id;
+    var title =  this.title;
 
-    if (confirm("Delete this book?")) {
-      var currentContactId = this._id;
-      Meteor.call("deleteTextbooks", currentContactId);
-      Router.go('ModerateTextBooks');
-    }
+
+    /* Need to handle offers when associated textbook has been deleted.*/
+    sweetAlert(
+        {title: "Are you sure?",
+          text: "This will delete the textbook record and associated offers.",
+          type: "warning",   showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Yes, delete it!",
+          closeOnConfirm: false},
+        function(isConfirm){
+          if(isConfirm) {
+            sweetAlert("Deleted!", "Textbook and associated offers have been deleted.");
+            Meteor.call("deleteTextbooks", currentContactId);
+            Meteor.call("deleteAssociatedBuyOffers", title);
+            Meteor.call("deleteAssociatedSellOffers", title);
+            Router.go('ModerateTextBooks');
+          }
+        });
   },
 
   'click .editTextBook': function(e){

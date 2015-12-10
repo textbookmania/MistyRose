@@ -34,153 +34,165 @@
             </tbody>
           </table>
         </div>
-      <div id="menu1{{ISBN}}" class="tab-pane fade">
-        <table class="table table-striped">
-          <tbody>
-          <tr>
-            <th>Title</th>
-            <th>Edit</th>
-            <th>Delete</th>
-            <th>Matches</th>
-          </tr>
+        <div id="menu1{{ISBN}}" class="tab-pane fade">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <th>Title</th>
+              <th>Edit</th>
+              <th>Delete</th>
+              <th>Matches</th>
+            </tr>
 
-          {{#each buyOfferList}}
-          <tr>
-            <td>{{title}}</td>
-            <td><button type="button" href="{{pathFor 'EditBuyOffers'}}" class="editBuyOffer btn btn-sm btn-info">Edit</button></td>
-            <td><button type="button" href="{{pathFor 'EditBuyOffers'}}"
-                        class="btn deleteBuyOffer btn-info btn-sm">Remove
-            </button></td>
-            <td>
-              <!-- Modal -->
-              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal{{_id}}">View
-                {{sellMatchesCount}} Offer(s)</button>
-              <div class="modal fade" id="myModal{{_id}}" role="dialog">
-                <div class="modal-dialog">
+            {{#each buyOfferList}}
+            <tr>
+              <td>{{title}}</td>
+              <td><button type="button" href="{{pathFor 'EditBuyOffers'}}" class="editBuyOffer btn btn-sm btn-info">Edit</button></td>
+              <td><button type="button" href="{{pathFor 'EditBuyOffers'}}"
+                          class="btn deleteBuyOffer btn-info btn-sm">Remove
+              </button></td>
+              <td>
+                <!-- Modal -->
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal{{_id}}">View
+                  {{sellMatchesCount}} Offer(s)</button>
+                <div class="modal fade" id="myModal{{_id}}" role="dialog">
+                  <div class="modal-dialog">
 
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Offers</h4>
-                    </div>
-                    <div class="modal-body">
-                      <table class="table table-striped">
-                        <tbody>
-                        <tr>
-                          <th>Title</th>
-                          <th>Condition</th>
-                          <th>Price</th>
-                        </tr>
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Offers</h4>
+                      </div>
+                      <div class="modal-body">
+                        {{#if hasSellMatches}}
+                        <table class="table table-striped">
+                          <tbody>
+                          <tr>
+                            <th>Title</th>
+                            <th>Condition</th>
+                            <th>Price</th>
+                          </tr>
 
-                        {{#each listSellMatches}}
-                        <tr>
-                          <td>{{title}}</td>
-                          <td>{{condition}} </td>
-                          <td>{{price}}</td>
-                          <td></td>
-                        </tr>
-                        {{/each}}
-                        </tbody>
-                      </table>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          {{#each listSellMatches}}
+                          <tr>
+                            <td>{{title}}</td>
+                            <td>{{condition}} </td>
+                            <td>{{price}}</td>
+                            <td></td>
+                          </tr>
+                          {{/each}}
+                          </tbody>
+                        </table>
+                        {{else}}
+
+                        <div class="no-matches">No Matches!</div>
+                        {{/if}}
+
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-            </td>
-          </tr>
-          {{/each}}
-          </tbody>
-        </table>
-      </div>
+              </td>
+            </tr>
+            {{/each}}
+            </tbody>
+          </table>
+        </div>
 
-      <div id="menu2{{ISBN}}" class="tab-pane fade">
-        <table class="table table-striped">
-          <tbody>
-          <tr>
-            <th>Title</th>
-            <th>Edit</th>
-            <th>Delete</th>
-            <th>Matches</th>
-          </tr>
+        <div id="menu2{{ISBN}}" class="tab-pane fade">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <th>Title</th>
+              <th>Edit</th>
+              <th>Delete</th>
+              <th>Matches</th>
+            </tr>
 
-          {{#each sellOfferList}}
-          <tr>
-            <td>{{title}}</td>
-            <td><button type="button" href="{{pathFor 'EditBuyOffers'}}" class="editSellOffer btn btn-sm btn-info">Edit</button></td>
-            <td><button type="button"
-                        class="btn deleteSellOffer btn-info btn-sm">Remove
-            </button></td>
-            <td>
-              <!-- Modal -->
-              <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                      data-target="#myModal{{_id}}1">View
-                {{buyMatchesCount}} Offer(s)</button>
-              <div class="modal fade" id="myModal{{_id}}1" role="dialog">
-                <div class="modal-dialog">
+            {{#each sellOfferList}}
+            <tr>
+              <td>{{title}}</td>
+              <td><button type="button" href="{{pathFor 'EditBuyOffers'}}" class="editSellOffer btn btn-sm btn-info">Edit</button></td>
+              <td><button type="button"
+                          class="btn deleteSellOffer btn-info btn-sm">Remove
+              </button></td>
+              <td>
+                <!-- Modal -->
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+                        data-target="#myModal{{_id}}1">View
+                  {{buyMatchesCount}} Offer(s)</button>
+                <div class="modal fade" id="myModal{{_id}}1" role="dialog">
+                  <div class="modal-dialog">
 
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Offers</h4>
-                    </div>
-                    <div class="modal-body">
-                      <table class="table table-striped">
-                        <tbody>
-                        <tr>
-                          <th>Title</th>
-                          <th>Condition</th>
-                          <th>Price</th>
-                          <th>Accept</th>
-                        </tr>
-                        {{#each listBuyMatches}}
-                        <tr>
-                          <td>{{title}}</td>
-                          <td>{{condition}} </td>
-                          <td>{{price}}</td>
-                          <td>
-                            <button type="button" href="{{pathFor 'EditBuyOffers'}}"
-                                    class="btn acceptBuyOffer btn-info btn-sm">Accept
-                            </button>
-                          </td>
-                        </tr>
-                        {{/each}}
-                        </tbody>
-                      </table>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Offers</h4>
+                      </div>
+                      <div class="modal-body">
+
+                        {{#if hasBuyMatches}}
+                        <table class="table table-striped">
+                          <tbody>
+                          <tr>
+                            <th>Title</th>
+                            <th>Condition</th>
+                            <th>Price</th>
+                            <th>Accept</th>
+                          </tr>
+                          {{#each listBuyMatches}}
+                          <tr>
+                            <td>{{title}}</td>
+                            <td>{{condition}} </td>
+                            <td>{{price}}</td>
+                            <td>
+                              <button type="button" href="{{pathFor 'EditBuyOffers'}}"
+                                      class="btn acceptBuyOffer btn-info btn-sm">Accept
+                              </button>
+                            </td>
+                          </tr>
+                          {{/each}}
+                          </tbody>
+                        </table>
+                        {{else}}
+                        <div class="no-matches">No Matches!</div>
+                        {{/if}}
+
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-            </td>
-          </tr>
-          {{/each}}
-          </tbody>
-        </table>
+              </td>
+            </tr>
+            {{/each}}
+            </tbody>
+          </table>
+        </div>
       </div>
+      <script>
+        $(document).ready(function(){
+          $(".nav-tabs a").click(function(){
+            $(this).tab('show');
+          });
+          $('.nav-tabs a').on('shown.bs.tab', function(event){
+            var x = $(event.target).text();         // active tab
+            var y = $(event.relatedTarget).text();  // previous tab
+            $(".act span").text(x);
+            $(".prev span").text(y);
+          });
+        });
+      </script>
     </div>
-    <script>
-      $(document).ready(function(){
-        $(".nav-tabs a").click(function(){
-          $(this).tab('show');
-        });
-        $('.nav-tabs a').on('shown.bs.tab', function(event){
-          var x = $(event.target).text();         // active tab
-          var y = $(event.relatedTarget).text();  // previous tab
-          $(".act span").text(x);
-          $(".prev span").text(y);
-        });
-      });
-    </script>
-  </div>
   </div>
 
   {{/IfLoggedIn}}
