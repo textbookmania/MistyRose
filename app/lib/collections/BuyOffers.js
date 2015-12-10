@@ -7,7 +7,6 @@ buyoffers = "BuyOffers";  // avoid typos, this string occurs many times.
 BuyOffers = new Mongo.Collection(buyoffers);
 
 
-
 Meteor.methods({
   /**
    * Invoked by AutoForm to create new sell offer record.
@@ -15,6 +14,7 @@ Meteor.methods({
    */
   addBuyOffers: function(doc) {
     doc.creator = Meteor.user().profile.name;
+    doc.accepted = false;
     check(doc, BuyOffers.simpleSchema());
     BuyOffers.insert(doc);
   },
@@ -35,6 +35,29 @@ Meteor.methods({
    */
   deleteBuyOffers: function(docID) {
     BuyOffers.remove(docID);
+  },
+
+  /**
+   *
+   * @param docID
+   * @param seller
+   */
+  acceptBuyOffer: function(docID, seller) {
+    BuyOffers.update({_id: docID}, {$set: {accepted: true}});
+    BuyOffers.update({_id: docID}, {$set: {seller: seller}});
+  },
+
+  cancelBuyOffer: function(title, buyer){
+    BuyOffers.update({creator: buyer, title: title}, {$set: {accepted: false}});
+    BuyOffers.update({creator: buyer, title: title}, {$unset: {seller: ""}});
+  },
+
+  /**
+   *
+   * @param title
+   */
+  deleteAssociatedBuyOffers: function(title){
+    BuyOffers.remove({title: title});
   }
 
 });
@@ -61,8 +84,14 @@ BuyOffers.attachSchema(new SimpleSchema({
     autoform: {
       placeholder: "Title",
       options:function() {
-        return Textbooks.find().map(function(doc){
-          return {label: doc.title, value: doc.title};
+
+        var sellOffers = SellOffers.find({creator: Meteor.user().profile.name}).map(function(object){return object.title;});
+        var currentOffers = BuyOffers.find({creator: Meteor.user().profile.name}).map(function(object){return object.title;});
+        var allTitles = Textbooks.find().map(function(object){return object.title;});
+
+        var allowed = _.difference(allTitles, sellOffers, currentOffers);
+        return allowed.map(function(doc){
+          return {label: doc, value: doc};
         });
       }
     }
@@ -72,7 +101,7 @@ BuyOffers.attachSchema(new SimpleSchema({
     label: "Condition",
     type: String,
     optional: true,
-    allowedValues: ['Excellent', 'Good', 'Fair', 'Poor'],
+    allowedValues: ['Excellent', 'Good', 'Fair', 'Poor', 'Any'],
     autoform:{
       placeholder: "Condition"
     }
@@ -81,6 +110,7 @@ BuyOffers.attachSchema(new SimpleSchema({
   price: {
     label: "Offer",
     type: Number,
+    decimal:false,
     optional: false,
     autoform:{
       placeholder: "Offer"
@@ -99,6 +129,16 @@ BuyOffers.attachSchema(new SimpleSchema({
   },
 
   creator:{
+    type:String,
+    optional:true
+  },
+
+  accepted:{
+    type: Boolean,
+    optional:true
+  },
+
+  seller: {
     type:String,
     optional:true
   }

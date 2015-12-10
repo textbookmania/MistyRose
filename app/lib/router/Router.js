@@ -39,7 +39,6 @@ Router.route('/textbooks/:_id', {
   data: function() { return Textbooks.findOne(this.params._id); }
 });
 
-
 Router.route('/buyoffers', {
   name: 'BuyOffers'
 });
@@ -47,4 +46,15 @@ Router.route('/buyoffers', {
 Router.route('/selloffers', {
   name: 'SellOffers'
 });
+
+Router.route('/buyoffers/:_id', {
+  name: 'EditBuyOffers',
+  data: function() { return BuyOffers.findOne(this.params._id); }
+});
+
+Router.route('/selloffers/:_id', {
+  name: 'EditSellOffers',
+  data: function() { return SellOffers.findOne(this.params._id); }
+});
+
 

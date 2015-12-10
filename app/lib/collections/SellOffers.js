@@ -13,6 +13,7 @@ Meteor.methods({
    */
   addSellOffers: function(doc) {
     doc.creator = Meteor.user().profile.name;
+    doc.accepted = false;
     check(doc, SellOffers.simpleSchema());
     SellOffers.insert(doc);
   },
@@ -33,7 +34,35 @@ Meteor.methods({
    */
   deleteSellOffers: function(docID) {
     SellOffers.remove(docID);
+  },
+
+  /**
+   *
+   * @param title
+   * @param buyer
+   */
+  acceptSellOffer: function(title, buyer) {
+    SellOffers.update({title: title, creator: Meteor.user().profile.name}, {$set: {accepted: true}});
+    SellOffers.update({title: title, creator: Meteor.user().profile.name}, {$set: {buyer: buyer}});
+  },
+
+  /**
+   *
+   * @param title
+   */
+  cancelSellOffer: function(title){
+    SellOffers.update({title:title, creator: Meteor.user().profile.name}, {$set: {accepted: false}});
+    SellOffers.update({title: title, creator: Meteor.user().profile.name}, {$unset: {buyer: ""}});
+  },
+
+  /**
+   *
+   * @param title
+   */
+  deleteAssociatedSellOffers: function(title){
+    SellOffers.remove({title: title});
   }
+
 });
 
 // Publish the entire Collection.  Subscription performed in the router.
@@ -58,8 +87,13 @@ SellOffers.attachSchema(new SimpleSchema({
     autoform: {
       placeholder: "Title",
       options:function() {
-        return Textbooks.find().map(function(doc){
-          return {label: doc.title, value: doc.title};
+        var buyOffers = BuyOffers.find({creator:Meteor.user().profile.name}).map(function(object){return object.title;});
+        var currentOffers = SellOffers.find({creator: Meteor.user().profile.name}).map(function(object){return object.title;});
+        var allTitles = Textbooks.find().map(function(object){return object.title;});
+
+        var allowed = _.difference(allTitles, buyOffers, currentOffers);
+        return allowed.map(function(doc){
+          return {label: doc, value: doc};
         });
       }
     }
@@ -78,6 +112,7 @@ SellOffers.attachSchema(new SimpleSchema({
   price: {
     label: "Offer",
     type: Number,
+    decimal: false,
     optional: false,
     autoform:{
       placeholder: "Offer"
@@ -98,7 +133,15 @@ SellOffers.attachSchema(new SimpleSchema({
   creator:{
     type:String,
     optional:true
+  },
+
+  accepted:{
+    type: Boolean,
+    optional:true
+  },
+
+  buyer: {
+    type:String,
+    optional:true
   }
-
-
 }));

@@ -5,7 +5,7 @@
 
   {{#each listTextBooks}}
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-sm-6 col-sm-offset-3">
 
       <div class="row box">
         <h2>{{title}}</h2>
@@ -18,16 +18,24 @@
           </div>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-6 vertical-align">
 
           Author: {{author}}<br>
           ISBN: {{ISBN}}<br>
+
+          {{#if hasOffers}}
           Buy Offers: {{getBuyOffersCount}}<br>
           Sell Offers: {{getSellOffersCount}}<br>
+          {{else}}
+          <br>
+          Currently no offers!<br>
+          {{/if}}
 
           <!-- Trigger the modal with a button -->
+          {{#if hasOffers}}
           <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal{{ISBN}}">View
             Offers</button>
+          {{/if}}
 
           <!-- Modal -->
           <div class="modal fade" id="myModal{{ISBN}}" role="dialog">
@@ -42,38 +50,52 @@
                 <div class="modal-body">
 
                   <ul class="nav nav-tabs">
-                    <li class="active"><a href="#home">Home</a></li>
-                    <li><a href="#menu1">Menu 1</a></li>
-                    <li><a href="#menu2">Menu 2</a></li>
-                    <li><a href="#menu3">Menu 3</a></li>
+                    <li class="active"><a href="#home{{ISBN}}">Buy Offers</a></li>
+                    <li><a href="#menu1{{ISBN}}">Sell Offers</a></li>
+
                   </ul>
 
                   <div class="tab-content">
-                    <div id="home" class="tab-pane fade in active">
-                      <h3>HOME</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div id="home{{ISBN}}" class="tab-pane fade in active">
+                      <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                          <th>Title</th>
+                          <th>Condition</th>
+                          <th>Price</th>
+                        </tr>
+
+                        {{#each listAllBuyOffers}}
+                        <tr>
+                          <td>{{title}}</td>
+                          <td>{{condition}} </td>
+                          <td>{{price}}</td>
+                        </tr>
+                        {{/each}}
+                        </tbody>
+                      </table>
                     </div>
-                    <div id="menu1" class="tab-pane fade">
-                      {{#each listAllBuyOffers}}
 
+                    <div id="menu1{{ISBN}}" class="tab-pane fade">
+                      <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                          <th>Title</th>
+                          <th>Condition</th>
+                          <th>Price</th>
+                        </tr>
 
-                      {{title}} | {{ISBN}} | {{condition}} | {{price}}
-
-
-                      {{/each}}
-                    </div>
-                    <div id="menu2" class="tab-pane fade">
-                      <h3>Menu 2</h3>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                    </div>
-                    <div id="menu3" class="tab-pane fade">
-                      <h3>Menu 3</h3>
-                      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                        {{#each listAllSellOffers}}
+                        <tr>
+                          <td>{{title}}</td>
+                          <td>{{condition}} </td>
+                          <td>{{price}}</td>
+                        </tr>
+                        {{/each}}
+                        </tbody>
+                      </table>
                     </div>
                   </div>
-                  <hr>
-                  <p class="act"><b>Active Tab</b>: <span></span></p>
-                  <p class="prev"><b>Previous Tab</b>: <span></span></p>
 
                   <script>
                     $(document).ready(function(){
@@ -100,9 +122,6 @@
 
             </div>
           </div>
-
-
-
 
 
           {{#if isInRole 'admin'}}
