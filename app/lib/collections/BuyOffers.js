@@ -7,7 +7,6 @@ buyoffers = "BuyOffers";  // avoid typos, this string occurs many times.
 BuyOffers = new Mongo.Collection(buyoffers);
 
 
-
 Meteor.methods({
   /**
    * Invoked by AutoForm to create new sell offer record.
@@ -38,12 +37,25 @@ Meteor.methods({
     BuyOffers.remove(docID);
   },
 
-
+  /**
+   *
+   * @param docID
+   * @param seller
+   */
   acceptBuyOffer: function(docID, seller) {
     BuyOffers.update({_id: docID}, {$set: {accepted: true}});
     BuyOffers.update({_id: docID}, {$set: {seller: seller}});
   },
 
+  cancelBuyOffer: function(title, buyer){
+    BuyOffers.update({creator: buyer, title: title}, {$set: {accepted: false}});
+    BuyOffers.update({creator: buyer, title: title}, {$unset: {seller: ""}});
+  },
+
+  /**
+   *
+   * @param title
+   */
   deleteAssociatedBuyOffers: function(title){
     BuyOffers.remove({title: title});
   }

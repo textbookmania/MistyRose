@@ -8,6 +8,7 @@
         <li class="active"><a href="#home{{ISBN}}">Notifications</a></li>
         <li><a href="#menu1{{ISBN}}">Buy Offers</a></li>
         <li><a href="#menu2{{ISBN}}">Sell Offers</a></li>
+        <li><a href="#menu3{{ISBN}}">Accepted Offers</a></li>
 
       </ul>
       <div class="tab-content">
@@ -96,7 +97,6 @@
                     </div>
                   </div>
                 </div>
-
               </td>
             </tr>
             {{/each}}
@@ -178,6 +178,35 @@
             </tbody>
           </table>
         </div>
+
+        <div id="menu3{{ISBN}}" class="tab-pane fade">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <th>Title</th>
+              <th>Condition</th>
+              <th>Price</th>
+              <th>Cancel</th>
+            </tr>
+
+            {{#each acceptedBuyOffers}}
+            <tr>
+              <td>{{title}}</td>
+              <td>{{condition}}</td>
+              <td>{{price}}</td>
+              <td><button type="button" href="{{pathFor 'EditBuyOffers'}}"
+                          class="btn cancelAccepted btn-info btn-sm">Cancel
+              </button></td>
+            </tr>
+
+            {{/each}}
+            </tbody>
+            </table>
+
+
+        </div>
+
+
       </div>
       <script>
         $(document).ready(function(){

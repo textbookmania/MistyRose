@@ -36,10 +36,29 @@ Meteor.methods({
     SellOffers.remove(docID);
   },
 
-  acceptSellOffer: function(title) {
-    SellOffers.update({title:title, creator: Meteor.user().profile.name}, {$set: {accepted: true}});
+  /**
+   *
+   * @param title
+   * @param buyer
+   */
+  acceptSellOffer: function(title, buyer) {
+    SellOffers.update({title: title, creator: Meteor.user().profile.name}, {$set: {accepted: true}});
+    SellOffers.update({title: title, creator: Meteor.user().profile.name}, {$set: {buyer: buyer}});
   },
 
+  /**
+   *
+   * @param title
+   */
+  cancelSellOffer: function(title){
+    SellOffers.update({title:title, creator: Meteor.user().profile.name}, {$set: {accepted: false}});
+    SellOffers.update({title: title, creator: Meteor.user().profile.name}, {$unset: {buyer: ""}});
+  },
+
+  /**
+   *
+   * @param title
+   */
   deleteAssociatedSellOffers: function(title){
     SellOffers.remove({title: title});
   }
@@ -118,6 +137,11 @@ SellOffers.attachSchema(new SimpleSchema({
 
   accepted:{
     type: Boolean,
+    optional:true
+  },
+
+  buyer: {
+    type:String,
     optional:true
   }
 }));
