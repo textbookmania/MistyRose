@@ -10,10 +10,27 @@ body {
   font-size: 12px;
   text-align: justify;
 }
+
 Footer{
-  padding-top: 100px;
   text-align: center;
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:30px;
+  width:100%;
 }
+
+.link-footer{
+  color: #E34777;
+  font-size: 18px;
+  font-family: Merriweather;
+}
+
+.link-footer:hover{
+  color: #E34777;
+  font-size: 18px;
+}
+
 .aboutHome{
 margin: 50px;
 }
@@ -51,7 +68,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top {
 
 .navbar-inverse{
   margin-top:-1px;
-  background-color: mistyrose;
+  background-color: #E34777;
   border:none;
   border-radius: 0;
 }
@@ -117,9 +134,10 @@ h3{
 }
 
 .box {
-  border:2px solid mistyrose;
+  border:2px solid #E34777;
   margin: 10px;
   padding-bottom: 15px;
+  background-color: mistyrose;
 }
 
 .row-book {
@@ -128,7 +146,7 @@ h3{
 
 .row h2 {
   font-size: 16px;
-  background: mistyrose;
+  background: #E34777;
   color: white;
   padding:10px;
 }
