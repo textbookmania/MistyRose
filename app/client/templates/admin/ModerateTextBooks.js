@@ -19,7 +19,7 @@ Template.ModerateTextBooks.events({
         {title: "Are you sure?",
           text: "This will delete the textbook record and associated offers.",
           type: "warning",   showCancelButton: true,
-          confirmButtonColor: "#DD6B55",
+          confirmButtonColor: "#E34777",
           confirmButtonText: "Yes, delete it!",
           closeOnConfirm: false},
         function(isConfirm){

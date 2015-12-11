@@ -128,7 +128,7 @@ Template.Matches.events({
         {title: "Are you sure?",
           text: "",
           type: "warning",   showCancelButton: true,
-          confirmButtonColor: "#DD6B55",
+          confirmButtonColor: "#E34777",
           confirmButtonText: "Yes, delete it!",
           closeOnConfirm: false},
         function(isConfirm){
@@ -150,7 +150,7 @@ Template.Matches.events({
         {title: "Are you sure?",
           text: "",
           type: "warning",   showCancelButton: true,
-          confirmButtonColor: "#DD6B55",
+          confirmButtonColor: "#E34777",
           confirmButtonText: "Yes, delete it!",
           closeOnConfirm: false},
         function(isConfirm){
@@ -176,7 +176,7 @@ Template.Matches.events({
         {title: "Accept "+ this.creator +"s offer?",
           text: "",
           type: "warning",   showCancelButton: true,
-          confirmButtonColor: "#DD6B55",
+          confirmButtonColor: "#E34777",
           confirmButtonText: "Accept",
           closeOnConfirm: false},
         function(isConfirm){
@@ -198,7 +198,7 @@ Template.Matches.events({
         {title: "Cancel this transaction?",
           text: "",
           type: "warning",   showCancelButton: true,
-          confirmButtonColor: "#DD6B55",
+          confirmButtonColor: "#E34777",
           confirmButtonText: "Accept",
           closeOnConfirm: false},
         function(isConfirm){
