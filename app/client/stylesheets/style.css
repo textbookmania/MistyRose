@@ -320,3 +320,17 @@ h3{
   color: #3A3A3A;
 }
 
+.card-img-top{
+  width: 300px;
+}
+
+.card{
+  width: 300px;
+
+}
+
+.demo-card {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 100px;
+}

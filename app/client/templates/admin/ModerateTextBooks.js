@@ -4,31 +4,7 @@ Template.ModerateTextBooks.helpers({
    * @returns {*} All of the Stuff documents.
    */
 
-  hasOffers: function () {
-    return BuyOffers.find({title: this.title, accepted: false}).count() !== 0 || SellOffers.find({title: this.title, accepted: false}).count() !== 0;
 
-  },
-
-  listTextBooks: function () {
-    return Textbooks.find();
-  },
-
-  getBuyOffersCount: function (){
-    return BuyOffers.find({title: this.title, accepted: false}).count();
-
-  },
-
-  getSellOffersCount: function (){
-    return SellOffers.find({title: this.title, accepted: false}).count();
-  },
-
-  listAllBuyOffers: function(){
-    return BuyOffers.find({title: this.title, accepted: false});
-  },
-
-  listAllSellOffers: function(){
-    return SellOffers.find({title: this.title, accepted: false});
-  }
 });
 
 Template.ModerateTextBooks.events({
@@ -62,4 +38,44 @@ Template.ModerateTextBooks.events({
     Router.go('/textbooks/'+ this._id);
   }
 
+});
+
+Template.AllBooks.helpers({
+  listTextBooks: function () {
+    var all = Textbooks.find({}).fetch();
+    var chunk = [];
+
+    var size = 2;
+
+    while (all.length > size){
+      chunk.push({row: all.slice(0, size)});
+      all = all.slice(size);
+    }
+    chunk.push({row: all});
+    return chunk;
+  }
+});
+
+Template.bookElement.helpers({
+  hasOffers: function () {
+    return BuyOffers.find({title: this.title, accepted: false}).count() !== 0 || SellOffers.find({title: this.title, accepted: false}).count() !== 0;
+
+  },
+
+  getBuyOffersCount: function (){
+    return BuyOffers.find({title: this.title, accepted: false}).count();
+
+  },
+
+  getSellOffersCount: function (){
+    return SellOffers.find({title: this.title, accepted: false}).count();
+  },
+
+  listAllBuyOffers: function(){
+    return BuyOffers.find({title: this.title, accepted: false});
+  },
+
+  listAllSellOffers: function(){
+    return SellOffers.find({title: this.title, accepted: false});
+  }
 });

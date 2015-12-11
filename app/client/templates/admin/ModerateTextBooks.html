@@ -3,140 +3,156 @@
 
 
 
+
+
+    {{> AllBooks}}
+
+
+
+
+  {{/IfLoggedIn}}
+</template>
+
+<template name="AllBooks">
   {{#each listTextBooks}}
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
+    {{> bookRow}}
+  {{/each}}
+</template>
 
-      <div class="row box">
-        <h2>{{title}}</h2>
+<template name="bookRow">
+  {{#each row}}
+    {{> bookElement}}
+  {{/each}}
+</template>
 
-        <div class="col-sm-6">
-          <div class="ListTextbookImage">
-            <a href="#">
-              <img src="{{cover}}"/>
-            </a>
-          </div>
-        </div>
+<template name="bookElement">
+  <div class="col-sm-6">
+    <div class="row box">
+      <h2>{{title}}</h2>
 
-        <div class="col-sm-6 vertical-align">
-
-          Author: {{author}}<br>
-          ISBN: {{ISBN}}<br>
-
-          {{#if hasOffers}}
-          Buy Offers: {{getBuyOffersCount}}<br>
-          Sell Offers: {{getSellOffersCount}}<br>
-          {{else}}
-          <br>
-          Currently no offers!<br>
-          {{/if}}
-
-          <!-- Trigger the modal with a button -->
-          {{#if hasOffers}}
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal{{ISBN}}">View
-            Offers</button>
-          {{/if}}
-
-          <!-- Modal -->
-          <div class="modal fade" id="myModal{{ISBN}}" role="dialog">
-            <div class="modal-dialog">
-
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Offers</h4>
-                </div>
-                <div class="modal-body">
-
-                  <ul class="nav nav-tabs">
-                    <li class="active"><a href="#home{{ISBN}}">Buy Offers</a></li>
-                    <li><a href="#menu1{{ISBN}}">Sell Offers</a></li>
-
-                  </ul>
-
-                  <div class="tab-content">
-                    <div id="home{{ISBN}}" class="tab-pane fade in active">
-                      <table class="table table-striped">
-                        <tbody>
-                        <tr>
-                          <th>Title</th>
-                          <th>Condition</th>
-                          <th>Price</th>
-                        </tr>
-
-                        {{#each listAllBuyOffers}}
-                        <tr>
-                          <td>{{title}}</td>
-                          <td>{{condition}} </td>
-                          <td>{{price}}</td>
-                        </tr>
-                        {{/each}}
-                        </tbody>
-                      </table>
-                    </div>
-
-                    <div id="menu1{{ISBN}}" class="tab-pane fade">
-                      <table class="table table-striped">
-                        <tbody>
-                        <tr>
-                          <th>Title</th>
-                          <th>Condition</th>
-                          <th>Price</th>
-                        </tr>
-
-                        {{#each listAllSellOffers}}
-                        <tr>
-                          <td>{{title}}</td>
-                          <td>{{condition}} </td>
-                          <td>{{price}}</td>
-                        </tr>
-                        {{/each}}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-
-                  <script>
-                    $(document).ready(function(){
-                      $(".nav-tabs a").click(function(){
-                        $(this).tab('show');
-                      });
-                      $('.nav-tabs a').on('shown.bs.tab', function(event){
-                        var x = $(event.target).text();         // active tab
-                        var y = $(event.relatedTarget).text();  // previous tab
-                        $(".act span").text(x);
-                        $(".prev span").text(y);
-                      });
-                    });
-                  </script>
-
-
-
-
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-
-          {{#if isInRole 'admin'}}
-
-          <button type="button" href="{{pathFor 'EditTextBooks'}}" class="editTextBook btn btn-sm btn-info">Edit</button>
-          <button type="button" href="{{pathFor 'AddTextBooks'}}" class="btn deleteTextBook btn-info btn-sm">Remove
-          </button>
-
-          {{/if}}
+      <div class="col-sm-6">
+        <div class="ListTextbookImage">
+          <a href="#">
+            <img src="{{cover}}"/>
+          </a>
         </div>
       </div>
-    </div>
 
+      <div class="col-sm-6 vertical-align">
+
+        Author: {{author}}<br>
+        ISBN: {{ISBN}}<br>
+
+        {{#if hasOffers}}
+        Buy Offers: {{getBuyOffersCount}}<br>
+        Sell Offers: {{getSellOffersCount}}<br>
+        {{else}}
+        <br>
+        Currently no offers!<br>
+        {{/if}}
+
+        <!-- Trigger the modal with a button -->
+        {{#if hasOffers}}
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal{{ISBN}}">View
+          Offers</button>
+        {{/if}}
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal{{ISBN}}" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Offers</h4>
+              </div>
+              <div class="modal-body">
+
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#home{{ISBN}}">Buy Offers</a></li>
+                  <li><a href="#menu1{{ISBN}}">Sell Offers</a></li>
+
+                </ul>
+
+                <div class="tab-content">
+                  <div id="home{{ISBN}}" class="tab-pane fade in active">
+                    <table class="table table-striped">
+                      <tbody>
+                      <tr>
+                        <th>Title</th>
+                        <th>Condition</th>
+                        <th>Price</th>
+                      </tr>
+
+                      {{#each listAllBuyOffers}}
+                      <tr>
+                        <td>{{title}}</td>
+                        <td>{{condition}} </td>
+                        <td>{{price}}</td>
+                      </tr>
+                      {{/each}}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div id="menu1{{ISBN}}" class="tab-pane fade">
+                    <table class="table table-striped">
+                      <tbody>
+                      <tr>
+                        <th>Title</th>
+                        <th>Condition</th>
+                        <th>Price</th>
+                      </tr>
+
+                      {{#each listAllSellOffers}}
+                      <tr>
+                        <td>{{title}}</td>
+                        <td>{{condition}} </td>
+                        <td>{{price}}</td>
+                      </tr>
+                      {{/each}}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <script>
+                  $(document).ready(function(){
+                    $(".nav-tabs a").click(function(){
+                      $(this).tab('show');
+                    });
+                    $('.nav-tabs a').on('shown.bs.tab', function(event){
+                      var x = $(event.target).text();         // active tab
+                      var y = $(event.relatedTarget).text();  // previous tab
+                      $(".act span").text(x);
+                      $(".prev span").text(y);
+                    });
+                  });
+                </script>
+
+
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        {{#if isInRole 'admin'}}
+
+        <button type="button" href="{{pathFor 'EditTextBooks'}}" class="editTextBook btn btn-sm btn-info">Edit</button>
+        <button type="button" href="{{pathFor 'AddTextBooks'}}" class="btn deleteTextBook btn-info btn-sm">Remove
+        </button>
+
+        {{/if}}
+      </div>
+    </div>
   </div>
-  {{/each}}
-  {{/IfLoggedIn}}
 </template>
 
