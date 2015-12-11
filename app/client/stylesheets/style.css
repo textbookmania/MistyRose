@@ -344,3 +344,8 @@ h3{
   background-color: mistyrose;
   color: #3A3A3A;
 }
+
+.btn-default, .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+
+  background-color: mistyrose;
+}
