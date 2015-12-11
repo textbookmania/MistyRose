@@ -3,7 +3,7 @@
 @import url(https://fonts.googleapis.com/css?family=Yeseva+One);
 
 body {
-  padding-top: 50px;  /* Move body of page below navbar. */
+  padding-top: 100px;  /* Move body of page below navbar. */
   font-family: 'MerriWeather Sans', sans-serif;
   background-color: white;
   color: #3A3A3A;
