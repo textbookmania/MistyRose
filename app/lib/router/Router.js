@@ -16,10 +16,6 @@ Router.route('/', {
   name: 'Home'
 });
 
-Router.route('/MyProfile', {
-  name: 'StudentProfile'
-});
-
 
 Router.route('/EditProfile', {
   name: 'EditProfile'

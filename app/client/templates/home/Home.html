@@ -1,18 +1,97 @@
 <template name="Home">
 
   {{#if currentUser}}
-  <div class="homeColumns">
+  <div class="welcomeProfile">
+    <h1>Welcome {{currentUser.profile.firstName}} {{currentUser.profile.lastName}}!</h1>
+
+    <h2>Your current profile settings</h2>
+
     <div class="container">
-      <div class="col-sm-12">
-
-          {{> Matches}}
-
+      <div class="col-sm-4"></div>
+      <div class="col-sm-2">
+        <img src="{{ currentUser.profile.profileImage }}" class="img-rounded center-block" height="100"
+             width="100"><br>
+      </div>
+      <div class="col-sm-6 text-left">
+        <p><h4 class="text-left">First Name : </h4>{{currentUser.profile.firstName}}</p>
+        <p><h4 class="text-left">Last Name : </h4>{{currentUser.profile.lastName}}</p>
+        <p><h4 class="text-left">Email : </h4>{{currentUser.profile.email}}</p>
+        <p><a href="{{pathFor 'EditProfile'}}">Edit</a></p>
       </div>
     </div>
   </div>
+
+
+  <div id="matchesHome">
+      {{> Matches}}
+  </div>
+
   {{else}}
   <div class="welcome">
-  <h1>Please login to continue.</h1>
+    <div class="textbookWelcome">
+      <h1>Need help buying or selling your textbooks?</h1>
+    </div>
+    <div class="textbookAvailable">
+      <h3>TEXTBOOKS AVAILABLE:</h3>
+
+      <h3>Come see what's in our bag! (these are sample photos)</h3>
+    </div>
+  </div>
+  <div id="container">
+    <div class="photobanner">
+      <img class="first" src="/images/textbookBag.jpg"/>
+      <img src="/images/textbookBag.jpg"/>
+      <img src="/images/rose-header.png"/>
+      <img src="/images/textbookBag.jpg"/>
+    </div>
+  </div>
+
+  <div class="aboutHome">
+    <h1>About this site</h1>
+
+    <div class="container">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-5">
+        <h3>Goal</h3>
+
+        <p>To help ICS students to exchange (buy/sell) their textbooks with each other.</p>
+      </div>
+      <div class="col-sm-5">
+        <h3>Site Features</h3>
+
+        <p>You must be a UH Manoa student to use our buy and selling features.</p>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="container">
+      <div class="col-sm-4">
+        <h4>Buy Offers</h4>
+
+        <p>If you are looking for a textbook you can create a buy offer and will be notifies via matches if there is a
+          seller for the book that you want. This is essentially your textbook wishlist.</p>
+      </div>
+      <div class="col-sm-4">
+        <h4>Sell Offers</h4>
+
+        <p>If you would like to sell your textbook you can create a sell offer and post what kind of condition your
+          book
+          is
+          in and how much you would like for your book. You may also see people who would like to buy your book in
+          matches. </p>
+      </div>
+      <div class="col-sm-4">
+        <h4>Matches</h4>
+
+        <p>If you have posted a Buy or Sell Offer then in your matches section you will be able to see people who meet
+          your
+          needs. For example, if you have a Buy Offer for a book "A" then this section will show you all the people
+          who
+          are
+          selling book "A" and you can select and accept their Sell Offer. The same thing works for a Sell offer. This
+          section is the textbook matchmaker.</p>
+
+      </div>
+    </div>
   </div>
   {{/if}}
 
