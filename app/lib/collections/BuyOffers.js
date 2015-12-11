@@ -16,7 +16,12 @@ Meteor.methods({
     doc.creator = Meteor.user().profile.name;
     doc.accepted = false;
     check(doc, BuyOffers.simpleSchema());
-    BuyOffers.insert(doc);
+
+    BuyOffers.insert(doc, function(docID) {
+      Meteor.setTimeout(BuyOffers.remove(docID), 7000);
+    });
+
+    //BuyOffers.insert(doc);
   },
   /**
    *
