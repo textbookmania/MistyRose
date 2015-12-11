@@ -14,7 +14,7 @@ Meteor.methods({
    */
 
   addTextbooks: function(doc) {
-    if (_.findWhere(Textbooks.find().fetch(), {title: doc.title})  && _.findWhere(Textbooks.find().fetch(), {ISBN: doc.ISBN}) ) {
+    if (_.findWhere(Textbooks.find().fetch(), {title: doc.title})  && _.findWhere(Textbooks.find().fetch(), {ISBN13: doc.ISBN13}) ) {
       if (Meteor.isClient) {
         sweetAlert("Title and ISBN already exists in the catalog!", "Please enter a different title and ISBN");
       }
@@ -25,7 +25,7 @@ Meteor.methods({
       }
       return;
     }
-    else if (_.findWhere(Textbooks.find().fetch(), {ISBN: doc.ISBN})) {
+    else if (_.findWhere(Textbooks.find().fetch(), {ISBN13: doc.ISBN13})) {
       if (Meteor.isClient) {
         sweetAlert("ISBN already exists in the catalog!", "Please enter a different ISBN.");
       }
@@ -76,6 +76,29 @@ Textbooks.attachSchema(new SimpleSchema({
       placeholder: "Name of textbook"
     }
   },
+  ISBN10: {
+    label: "ISBN 10",
+    type: String,
+    optional: false,
+    unique: true,
+    max: 50,
+    autoform: {
+      group: textbooks,
+      placeholder: "ISBN 10"
+    }
+  },
+
+  ISBN13: {
+    label: "ISBN 13",
+    type: String,
+    optional: false,
+    unique: true,
+    max: 50,
+    autoform: {
+      group: textbooks,
+      placeholder: "ISBN 13"
+    }
+  },
   author: {
     label: "Author",
     type: String,
@@ -86,17 +109,7 @@ Textbooks.attachSchema(new SimpleSchema({
       placeholder: "Name of author (first and last)"
     }
   },
-  ISBN: {
-    label: "ISBN",
-    type: String,
-    optional: false,
-    unique: true,
-    max: 50,
-    autoform: {
-      group: textbooks,
-      placeholder: "ISBN"
-    }
-  },
+
 
   cover: {
     label: "Cover",
