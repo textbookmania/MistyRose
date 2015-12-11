@@ -16,13 +16,12 @@
 
         <ul class="nav navbar-nav navbar-right">
           {{#if currentUser}}
-          <li><a href="{{ pathFor 'Home' }}">Home</a></li>
-
-          <li><a href="{{ pathFor 'ModerateTextBooks' }}">Textbooks</a></li>
+          <li><a href="{{ pathFor 'Home' }}"><i class="fa fa-home"></i> Home</a></li>
+          <li><a href="{{ pathFor 'ModerateTextBooks' }}"><i class="fa fa-book"></i> Textbooks</a></li>
 
 
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown">Offers
+            <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-cart"></i> Offers
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
@@ -35,7 +34,7 @@
 
           {{#if isInRole 'admin'}}
           <li class = "dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-lock"></i> Admin
               <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="{{ pathFor 'ModerateTextBooks' }}"></a></li>
