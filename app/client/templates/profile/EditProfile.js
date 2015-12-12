@@ -9,5 +9,6 @@ Template.EditProfile.events({
     Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.lastName": $(e.target).find('[id=last-name]').val()}});
 
     Router.go('Home');
+    sweetAlert("Profile has been updated.");
   }
 });

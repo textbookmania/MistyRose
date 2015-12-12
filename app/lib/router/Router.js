@@ -17,10 +17,6 @@ Router.route('/', {
 });
 
 
-Router.route('/EditProfile', {
-  name: 'EditProfile'
-});
-
 Router.route('/Textbooks', {
   name: 'ModerateTextBooks'
 });
