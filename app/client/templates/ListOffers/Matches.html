@@ -40,6 +40,7 @@
             <tbody>
             <tr>
               <th>Title</th>
+                <th>Expires</th>
               <th>Edit</th>
               <th>Delete</th>
               <th>Matches</th>
@@ -48,9 +49,10 @@
             {{#each buyOfferList}}
             <tr>
               <td>{{title}}</td>
-              <td><button type="button" href="{{pathFor 'EditBuyOffers'}}" class="editBuyOffer btn btn-sm btn-info">Edit</button></td>
+                <td>{{expiration}}</td>
+              <td><button type="button" href="{{pathFor 'EditBuyOffers'}}" class="editBuyOffer btn btn-sm btn-info"><i class="fa fa-pencil"></i></button></td>
               <td><button type="button" href="{{pathFor 'EditBuyOffers'}}"
-                          class="btn deleteBuyOffer btn-info btn-sm">Remove
+                          class="btn deleteBuyOffer btn-info btn-sm"><i class="fa fa-trash"></i>
               </button></td>
               <td>
                 <!-- Modal -->
@@ -109,6 +111,7 @@
             <tbody>
             <tr>
               <th>Title</th>
+                <th>Expires</th>
               <th>Edit</th>
               <th>Delete</th>
               <th>Matches</th>
@@ -117,9 +120,10 @@
             {{#each sellOfferList}}
             <tr>
               <td>{{title}}</td>
-              <td><button type="button" href="{{pathFor 'EditBuyOffers'}}" class="editSellOffer btn btn-sm btn-info">Edit</button></td>
+                <td>{{expiration}}</td>
+              <td><button type="button" href="{{pathFor 'EditBuyOffers'}}" class="editSellOffer btn btn-sm btn-info"><i class="fa fa-pencil"></i></button></td>
               <td><button type="button"
-                          class="btn deleteSellOffer btn-info btn-sm">Remove
+                          class="btn deleteSellOffer btn-info btn-sm"><i class="fa fa-trash"></i>
               </button></td>
               <td>
                 <!-- Modal -->
