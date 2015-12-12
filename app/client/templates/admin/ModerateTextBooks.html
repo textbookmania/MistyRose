@@ -20,7 +20,7 @@
 
 <template name="bookElement">
   <div class="col-sm-6">
-    <div class="row box" style="min-height: 280px; padding-top: 10px;">
+    <div class="row box" style="min-height: 280px; padding-top: 10px; border-radius: 25px">
       <h2>{{title}}</h2>
 
       <div class="col-sm-6">
@@ -34,7 +34,8 @@
       <div class="col-sm-6 vertical-align">
 
         Author: {{author}}<br>
-        ISBN: {{ISBN}}<br>
+        ISBN-10: {{ISBN10}}<br>
+          ISBN-13: {{ISBN13}}<br>
 
         {{#if hasOffers}}
         Buy Offers: {{getBuyOffersCount}}<br>
@@ -46,12 +47,12 @@
 
         <!-- Trigger the modal with a button -->
         {{#if hasOffers}}
-        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal{{ISBN}}">View
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal{{ISBN13}}">View
           Offers</button>
         {{/if}}
 
         <!-- Modal -->
-        <div class="modal fade" id="myModal{{ISBN}}" role="dialog">
+        <div class="modal fade" id="myModal{{ISBN13}}" role="dialog">
           <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -63,13 +64,13 @@
               <div class="modal-body">
 
                 <ul class="nav nav-tabs">
-                  <li class="active"><a href="#home{{ISBN}}">Buy Offers</a></li>
-                  <li><a href="#menu1{{ISBN}}">Sell Offers</a></li>
+                  <li class="active"><a href="#home{{ISBN13}}">Buy Offers</a></li>
+                  <li><a href="#menu1{{ISBN13}}">Sell Offers</a></li>
 
                 </ul>
 
                 <div class="tab-content">
-                  <div id="home{{ISBN}}" class="tab-pane fade in active">
+                  <div id="home{{ISBN13}}" class="tab-pane fade in active">
                     <table class="table table-striped">
                       <tbody>
                       <tr>
@@ -89,7 +90,7 @@
                     </table>
                   </div>
 
-                  <div id="menu1{{ISBN}}" class="tab-pane fade">
+                  <div id="menu1{{ISBN13}}" class="tab-pane fade">
                     <table class="table table-striped">
                       <tbody>
                       <tr>
