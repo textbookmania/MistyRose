@@ -1,9 +1,7 @@
-/**
- *
- */
 Template.Matches.helpers({
 
   /**
+   * Returns all of the current user's unaccepted buy offers
    * @returns {*} All of the Stuff documents.
    */
   buyOfferList: function () {
@@ -11,7 +9,7 @@ Template.Matches.helpers({
   },
 
   /**
-   *
+   * Returns the sell matches for a buy offer
    * @returns {*}
    */
   listSellMatches:function() {
@@ -23,7 +21,7 @@ Template.Matches.helpers({
   },
 
   /**
-   *
+   * Returns the count of sell matches
    * @returns {*}
    */
   sellMatchesCount:function () {
@@ -35,7 +33,7 @@ Template.Matches.helpers({
   },
 
   /**
-   *
+   * Returns true or false if the user has any sell matches
    * @returns {boolean}
    */
   hasSellMatches: function(){
@@ -44,7 +42,7 @@ Template.Matches.helpers({
 
 
   /**
-   *
+   * Returns all of the current user's unaccepted sell offers
    * @returns {*}
    */
   sellOfferList: function () {
@@ -52,7 +50,7 @@ Template.Matches.helpers({
   },
 
   /**
-   *
+   * Returns the sell matches for a buy offer
    * @returns {*}
    */
   listBuyMatches: function () {
@@ -62,7 +60,7 @@ Template.Matches.helpers({
   },
 
   /**
-   *
+   * Returns the count of buy matches
    * @returns {*}
    */
   buyMatchesCount: function () {
@@ -71,7 +69,7 @@ Template.Matches.helpers({
   },
 
   /**
-   *
+   * Returns true or false if the user has any buy matches
    * @returns {boolean}
    */
   hasBuyMatches: function (){
@@ -79,7 +77,7 @@ Template.Matches.helpers({
   },
 
   /**
-   *
+   * Returns the list of accepted books to be associated with a message
    * @returns {*}
    */
   acceptedMessages: function() {
@@ -89,7 +87,7 @@ Template.Matches.helpers({
 
 
   /**
-   *
+   * Returns a list of accepted offers
    * @returns {*}
    */
   acceptedBuyOffers: function() {
@@ -100,7 +98,7 @@ Template.Matches.helpers({
 Template.Matches.events({
 
   /**
-   *
+   * Event function to edit a buy offer
    * @param e
    */
   'click .editBuyOffer': function (e) {
@@ -109,7 +107,7 @@ Template.Matches.events({
   },
 
   /**
-   *
+   * Event function to edit a sell offer
    * @param e
    */
   'click .editSellOffer': function (e) {
@@ -118,7 +116,7 @@ Template.Matches.events({
   },
 
   /**
-   *
+   * Event function to delete a buy offer
    * @param e
    */
   'click .deleteBuyOffer': function(e) {
@@ -140,7 +138,7 @@ Template.Matches.events({
   },
 
   /**
-   *
+   * Event function to delete a sell offer
    * @param e
    */
   'click .deleteSellOffer': function(e) {
@@ -162,7 +160,7 @@ Template.Matches.events({
   },
 
   /**
-   *
+   * Event function to accepted a buy offer
    * @param e
    */
   'click .acceptBuyOffer': function(e){
@@ -189,6 +187,11 @@ Template.Matches.events({
         });
   },
 
+
+  /**
+   * Event function to cancel an accepted offer
+   * @param e
+   */
   'click .cancelAccepted': function(e){
     e.preventDefault();
     var offerTitle = this.title;

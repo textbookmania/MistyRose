@@ -1,13 +1,9 @@
-Template.ModerateTextBooks.helpers({
+Template.ModerateTextBooks.events({
 
   /**
-   * @returns {*} All of the Stuff documents.
+   * Event function to delete a textbook and alert
+   * @param e
    */
-
-
-});
-
-Template.ModerateTextBooks.events({
   'click .deleteTextBook': function(e) {
     e.preventDefault();
     var currentContactId = this._id;
@@ -33,6 +29,10 @@ Template.ModerateTextBooks.events({
         });
   },
 
+  /**
+   * Event function to edit a textbook
+   * @param e
+   */
   'click .editTextBook': function(e){
     e.preventDefault();
     Router.go('/textbooks/'+ this._id);
@@ -41,6 +41,11 @@ Template.ModerateTextBooks.events({
 });
 
 Template.AllBooks.helpers({
+
+  /**
+   * Returns an array of textbooks grouped by 2s
+   * @returns {Array}
+   */
   listTextBooks: function () {
     var all = Textbooks.find({}).fetch();
     var chunk = [];
@@ -57,24 +62,45 @@ Template.AllBooks.helpers({
 });
 
 Template.bookElement.helpers({
+
+  /**
+   * Returns whether a textbook has an offer
+   * @returns {boolean}
+   */
   hasOffers: function () {
     return BuyOffers.find({title: this.title, accepted: false}).count() !== 0 || SellOffers.find({title: this.title, accepted: false}).count() !== 0;
 
   },
 
+  /**
+   * Returns the number of buy offers in the system
+   * @returns {*}
+   */
   getBuyOffersCount: function (){
     return BuyOffers.find({title: this.title, accepted: false}).count();
 
   },
 
+  /**
+   * Returns the number of sell offers in the system
+   * @returns {*}
+   */
   getSellOffersCount: function (){
     return SellOffers.find({title: this.title, accepted: false}).count();
   },
 
+  /**
+   * Returns all the buy offers for a book
+   * @returns {*}
+   */
   listAllBuyOffers: function(){
     return BuyOffers.find({title: this.title, accepted: false});
   },
 
+  /**
+   * Returns all the sell offers for a book
+   * @returns {*}
+   */
   listAllSellOffers: function(){
     return SellOffers.find({title: this.title, accepted: false});
   }

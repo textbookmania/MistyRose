@@ -9,7 +9,7 @@ BuyOffers = new Mongo.Collection(buyoffers);
 
 Meteor.methods({
   /**
-   * Invoked by AutoForm to create new sell offer record.
+   * Invoked by AutoForm to create new buy offer record.
    * @param doc The Textbooks document.
    */
   addBuyOffers: function(doc) {
@@ -21,13 +21,11 @@ Meteor.methods({
       Meteor.setTimeout(BuyOffers.remove(docID), 7000);
     });
 
-    //BuyOffers.insert(doc);
   },
   /**
-   *
    * Invoked by AutoForm to update offers record.
    * @param doc The Textbooks document.
-   * @param docID It's ID.
+   * @param docID Its ID.
    */
   editBuyOffers: function(doc, docID) {
     check(doc, BuyOffers.simpleSchema());
@@ -35,31 +33,39 @@ Meteor.methods({
   },
 
   /**
-   *
-   * @param docID
+   *Invoked by AutoForm to delete offers record.
+   * @param docID Its ID.
    */
   deleteBuyOffers: function(docID) {
     BuyOffers.remove(docID);
   },
 
   /**
-   *
-   * @param docID
-   * @param seller
+   * Function invoked to simulate accepting an offer.
+   * Accepted condition is set to true and
+   * the interested seller is defined.
+   * @param docID The offer's ID
+   * @param seller The name of the seller
    */
   acceptBuyOffer: function(docID, seller) {
     BuyOffers.update({_id: docID}, {$set: {accepted: true}});
     BuyOffers.update({_id: docID}, {$set: {seller: seller}});
   },
 
+  /**
+   * Function invoked to reverse acceptBuyOffer process.
+   * @param title The title of the book
+   * @param buyer The name of the buyer
+   */
   cancelBuyOffer: function(title, buyer){
     BuyOffers.update({creator: buyer, title: title}, {$set: {accepted: false}});
     BuyOffers.update({creator: buyer, title: title}, {$unset: {seller: ""}});
   },
 
   /**
-   *
-   * @param title
+   * Function called in the process of deleting a textbook to remove
+   * associated buy offers.
+   * @param title The title of the book
    */
   deleteAssociatedBuyOffers: function(title){
     BuyOffers.remove({title: title});

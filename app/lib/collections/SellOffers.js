@@ -1,5 +1,4 @@
 /**
- *
  * Created by Josephine on 11/18/15.
  */
 selloffers = "SellOffers";  // avoid typos, this string occurs many times.
@@ -29,7 +28,7 @@ Meteor.methods({
   },
 
   /**
-   *
+   * Invoked to delete offers record.
    * @param docID
    */
   deleteSellOffers: function(docID) {
@@ -37,7 +36,9 @@ Meteor.methods({
   },
 
   /**
-   *
+   * Invoked to accept sell offer.
+   * Sell offer condition is set to true,
+   * and the buyer's name is recorded.
    * @param title
    * @param buyer
    */
@@ -47,7 +48,7 @@ Meteor.methods({
   },
 
   /**
-   *
+   * Reverse process of accepting a sell offer.
    * @param title
    */
   cancelSellOffer: function(title){
@@ -56,7 +57,8 @@ Meteor.methods({
   },
 
   /**
-   *
+   * Function called in the process of deleting a textbook to remove
+   * associated sell offers.
    * @param title
    */
   deleteAssociatedSellOffers: function(title){

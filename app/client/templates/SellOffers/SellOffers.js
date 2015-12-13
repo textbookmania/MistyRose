@@ -1,7 +1,7 @@
 AutoForm.hooks({
   SellOfferForm: {
     /**
-     * After successful form submission, go to the ListStuff page.
+     * After successful form submission, go to the home page.
      * @param formType The form.
      * @param result The result of form submission.
      */
