@@ -368,7 +368,7 @@ h3{
 .row h2 {
   background-color: #E34777;
 }
-.btn-info, .btn-primary {
+.btn-info, .btn-info.active, .btn-info:active, .btn-info:active:focus, .btn-info.open, .btn-info:focus, .btn-primary {
   background-color: #FBBCB5;
   border-color: #FBC4BE;
 }
