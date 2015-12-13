@@ -35,7 +35,7 @@
 
         Author: {{author}}<br>
         ISBN-10: {{ISBN10}}<br>
-          ISBN-13: {{ISBN13}}<br>
+        ISBN-13: {{ISBN13}}<br>
 
         {{#if hasOffers}}
         Buy Offers: {{getBuyOffersCount}}<br>
@@ -74,16 +74,16 @@
                     <table class="table table-striped">
                       <tbody>
                       <tr>
-                        <th>Title</th>
                         <th>Condition</th>
                         <th>Price</th>
+                        <th>Expiration</th>
                       </tr>
 
                       {{#each listAllBuyOffers}}
                       <tr>
-                        <td>{{title}}</td>
                         <td>{{condition}} </td>
                         <td>{{price}}</td>
+                        <td>{{expiration}}</td>
                       </tr>
                       {{/each}}
                       </tbody>
@@ -94,16 +94,16 @@
                     <table class="table table-striped">
                       <tbody>
                       <tr>
-                        <th>Title</th>
                         <th>Condition</th>
                         <th>Price</th>
+                        <th>Expiration</th>
                       </tr>
 
                       {{#each listAllSellOffers}}
                       <tr>
-                        <td>{{title}}</td>
                         <td>{{condition}} </td>
                         <td>{{price}}</td>
+                        <td>{{expiration}}</td>
                       </tr>
                       {{/each}}
                       </tbody>
