@@ -8,6 +8,7 @@ Template.EditProfile.events({
     Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.profileImage": $(e.target).find('[id=profile-image]').val()}});
     Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.firstName": $(e.target).find('[id=first-name]').val()}});
     Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.lastName": $(e.target).find('[id=last-name]').val()}});
+    Meteor.users.update({_id: userId}, {$set: {"profile.contact": $(e.target).find('[id=contact]').check()}});
 
     Router.go('Home');
     sweetAlert("Profile has been updated.");

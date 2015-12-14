@@ -29,6 +29,8 @@ Accounts.validateNewUser(function (user) {
           //Meteor.users.update({_id: userId}, {$set: {"profile.profileImage": "http://i.imgur.com/Bkj4Rln.png"}});
           Images.insert({image:"http://i.imgur.com/Bkj4Rln.png", user: username, firstName:"", lastName: ""});
 
+
+          Meteor.users.update({_id: userId}, {$set: {"profile.contact": true}});
         }
       });
 

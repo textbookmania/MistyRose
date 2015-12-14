@@ -34,3 +34,5 @@ tsega:bootstrap3-datetimepicker@=3.1.3_3
 kevohagan:sweetalert
 fortawesome:fontawesome
 cosio55:autoform-cloudinary
+cfs:standard-packages
+cfs:filesystem
