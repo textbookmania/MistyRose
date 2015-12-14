@@ -19,10 +19,16 @@
           <li><a href="{{ pathFor 'Home' }}"><i class="fa fa-home"></i> Home</a></li>
           <li><a href="{{ pathFor 'ModerateTextBooks' }}"><i class="fa fa-book"></i> Textbooks</a></li>
 
-          <li><a href="{{ pathFor 'About' }}">About</a> </li>
-          <li><a href="{{ pathFor 'Help' }}">Help</a> </li>
-          {{else}}
-          <li><a href="#aboutHome">About</a></li>
+
+          <li class = "dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-question-circle"></i> Info
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="{{ pathFor 'About' }}">About</a> </li>
+              <li><a href="{{ pathFor 'Help' }}">Help</a> </li>
+            </ul>
+          </li>
+
           {{/if}}
 
           {{#if isInRole 'admin'}}

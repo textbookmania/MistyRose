@@ -25,7 +25,14 @@ Images.attachSchema(new SimpleSchema({
   lastName:{
     type: String,
     optional: true
+  },
+
+  contact:{
+    type: Boolean,
+    optional: true,
+    label: "Contact Me"
   }
+
 }));
 
 // Publish the entire Collection.  Subscription performed in the router.
@@ -47,6 +54,7 @@ Meteor.methods({
     Images.update({user: Meteor.user().profile.name}, {$set: {firstName: doc.firstName}}, {validate: false});
     Images.update({user: Meteor.user().profile.name}, {$set: {lastName: doc.lastName}}, {validate: false});
     Images.update({user: Meteor.user().profile.name}, {$set: {image: doc.image}}, {validate: false});
+    Images.update({user: Meteor.user().profile.name}, {$set: {contact: doc.contact}}, {validate: false});
   }
 
 });

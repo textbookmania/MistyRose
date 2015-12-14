@@ -1,17 +1,46 @@
 <template name="StudentProfile">
   {{#IfLoggedIn}}
   <div class="container">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6">
-      <img src="{{ currentUser.profile.profileImage }}" class="img-rounded center-block" height="100" width="100"><br>
-      <p>First Name : {{currentUser.profile.firstName}}</p>
-      <p>Last Name : {{currentUser.profile.lastName}}</p>
-      <p>Email : {{currentUser.profile.email}}</p>
-      <p>Contact by email: {{currentUser.profile.contact}}</p>
+    {{#each getImageProfile}}
+    <div class="col-sm-4">
 
-      <p><a href="{{pathFor 'EditProfile'}}">Edit</a></p>
+      <img src="{{image}}" class="img-rounded center-block" height="100"
+           width="100"><br>
     </div>
-    <div class="col-sm-3"></div>
+    <div class="col-sm-8 text-left">
+
+      <p><h4 class="text-left">First Name : </h4>{{firstName}}</p>
+      <p><h4 class="text-left">Last Name : </h4>{{lastName}}</p>
+      <p><h4 class="text-left">Email : </h4>{{currentUser.profile.email}}</p>
+
+      <p><h4 class="text-left">Contact By Email : </h4>{{#if contact}} Yes {{else}} No {{/if}}</p>
+
+
+      <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal-profile">Profile <i class="fa fa-user"></i></button>
+
+      <!-- Modal -->
+      <div id="myModal-profile" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Edit Your Profile</h4>
+            </div>
+            <div class="modal-body">
+              {{> EditProfile}}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    {{/each}}
   </div>
   {{/IfLoggedIn}}
 </template>

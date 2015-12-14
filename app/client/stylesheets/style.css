@@ -228,10 +228,11 @@ h3{
   opacity: .85;
   position: absolute;
   background-size: cover;
+  padding-top: 0;
 }
 
 .textbookWelcome{
-  padding-top: 50px;
+  margin-top: -80px;
   padding-bottom: 100px;
 }
 
