@@ -26,7 +26,8 @@ Accounts.validateNewUser(function (user) {
           }
 
           Meteor.users.update({_id: userId}, {$set: {"profile.email": username + "@hawaii.edu"}});
-          Meteor.users.update({_id: userId}, {$set: {"profile.profileImage": "http://i.imgur.com/Bkj4Rln.png"}});
+          //Meteor.users.update({_id: userId}, {$set: {"profile.profileImage": "http://i.imgur.com/Bkj4Rln.png"}});
+          Images.insert({image:"http://i.imgur.com/Bkj4Rln.png", user: username, firstName:"", lastName: ""});
 
         }
       });

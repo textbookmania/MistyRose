@@ -1,5 +1,6 @@
 /*Credits to team LightSteelBlue*/
 
+/*
 Template.EditProfile.events({
   'submit form': function(e) {
     e.preventDefault();
@@ -12,3 +13,4 @@ Template.EditProfile.events({
     sweetAlert("Profile has been updated.");
   }
 });
+    */

@@ -5,13 +5,16 @@
      <div class="col-sm-4">
          <div class="welcomeProfile">
              <div class="container">
+               {{#each getImageProfile}}
                  <div class="col-sm-4">
-                     <img src="{{ currentUser.profile.profileImage }}" class="img-rounded center-block" height="100"
+
+                     <img src="{{image}}" class="img-rounded center-block" height="100"
                           width="100"><br>
                  </div>
                  <div class="col-sm-8 text-left">
-                     <p><h4 class="text-left">First Name : </h4>{{currentUser.profile.firstName}}</p>
-                     <p><h4 class="text-left">Last Name : </h4>{{currentUser.profile.lastName}}</p>
+
+                     <p><h4 class="text-left">First Name : </h4>{{firstName}}</p>
+                     <p><h4 class="text-left">Last Name : </h4>{{lastName}}</p>
                      <p><h4 class="text-left">Email : </h4>{{currentUser.profile.email}}</p>
 
                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal-profile">Profile <i class="fa fa-user"></i></button>
@@ -38,6 +41,7 @@
                    </div>
 
                  </div>
+               {{/each}}
              </div>
          </div>
      </div>
