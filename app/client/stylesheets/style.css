@@ -226,7 +226,7 @@ h3{
   bottom: 0;
   right: 0;
   z-index: -1;
-  opacity: .75;
+  opacity: .85;
   position: absolute;
   background-size: cover;
 }
@@ -237,10 +237,10 @@ h3{
 }
 
 .textbookAvailable{
-  margin-top: 200px;
+  margin-top: 25px;
   padding-top: 20px;
   padding-bottom: 20px;
-  background:rgba(0,0,0,0.7);
+  background:rgba(0,0,0,0.6);
 }
 #container {
   overflow: hidden;
@@ -379,3 +379,11 @@ h3{
   border-color: #FBC4BE;
 }
 
+.faq {
+  background-color: #3A3A3A;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.faqList {
+  color: mistyrose;
+}

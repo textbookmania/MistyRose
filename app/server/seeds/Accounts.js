@@ -1,3 +1,4 @@
+
 /**
  *
  */
@@ -24,10 +25,9 @@ Accounts.validateNewUser(function (user) {
           }else{
             Roles.addUsersToRoles(userId, ['student']);
           }
-
           Meteor.users.update({_id: userId}, {$set: {"profile.email": username + "@hawaii.edu"}});
           Meteor.users.update({_id: userId}, {$set: {"profile.profileImage": "http://i.imgur.com/Bkj4Rln.png"}});
-
+          Meteor.users.update({_id: userId}, {$set: {"profile.contact": true}});
         }
       });
 

@@ -49,4 +49,11 @@ Router.route('/selloffers/:_id', {
   data: function() { return SellOffers.findOne(this.params._id); }
 });
 
+Router.route('/about/',{
+  name: 'About'
+});
+
+Router.route('/help/',{
+  name: 'Help'
+});
 

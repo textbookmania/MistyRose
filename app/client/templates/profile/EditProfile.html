@@ -9,6 +9,21 @@
       <input type="url" class="form-control" id="profile-image" value="{{ currentUser.profile.profileImage }}"
              placeholder="Profile Image URL">
     </div>
+<!--    <div class="form-group">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Photo Upload</h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            Add Photo
+            <span class="btn btn-default btn-file">
+              <input class="file fileInput" type="file"/>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>-->
     <div class="form-group">
       <label class="control-label" for="first-name">First Name</label>
       <input type="text" class="form-control" id="first-name" value="{{ currentUser.profile.firstName }}"
@@ -18,6 +33,10 @@
       <label class="control-label" for="last-name">Last Name</label>
       <input type="text" class="form-control" id="last-name" value="{{ currentUser.profile.lastName }}"
              placeholder="Last Name">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="contact">Contact by Email?</label>
+      <input type="checkbox" class="toggle-checked" id="contact">
     </div>
 
     <input type="submit" value="Submit" class="btn btn-primary submit"/>

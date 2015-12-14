@@ -14,6 +14,9 @@
                      <p><h4 class="text-left">Last Name : </h4>{{currentUser.profile.lastName}}</p>
                      <p><h4 class="text-left">Email : </h4>{{currentUser.profile.email}}</p>
 
+                   <p><h4 class="text-left">Contact by email : </h4>{{#if currentUser.profile.contact}} Yes {{else}} No {{/if}}</p>
+
+
                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal-profile">Profile <i class="fa fa-user"></i></button>
 
                    <!-- Modal -->
@@ -108,14 +111,14 @@
   {{else}}
   <div class="welcome">
     <div class="textbookWelcome">
-      <h1>Need help buying or selling your textbooks?</h1>
+
     </div>
     <div class="textbookAvailable">
-      <h3>TEXTBOOKS AVAILABLE:</h3>
-
-      <h3>Come see what's in our bag! (these are sample photos)</h3>
+      <h1>Need help buying or selling your textbooks?</h1>
+      <h3>We got you covered</h3>
     </div>
   </div>
+  <!--
   <div id="container">
     <div class="photobanner">
       <img class="first" src="/images/textbookBag.jpg"/>
@@ -124,6 +127,7 @@
       <img src="/images/textbookBag.jpg"/>
     </div>
   </div>
+  -->
 
   <div class="aboutHome">
     <h1 class="pink-color">About this site</h1>
@@ -146,7 +150,7 @@
       <div class="col-sm-4">
         <h4>Buy Offers</h4>
 
-        <p>If you are looking for a textbook you can create a buy offer and will be notifies via matches if there is a
+        <p>If you are looking for a textbook you can create a buy offer and will be notified via matches if there is a
           seller for the book that you want. This is essentially your textbook wishlist.</p>
       </div>
       <div class="col-sm-4">
@@ -170,6 +174,22 @@
           section is the textbook matchmaker.</p>
 
       </div>
+    </div>
+  </div>
+
+  <div class="faq">
+    <h1>To use the Misty Rose Textbook Mania</h1>
+    <div class="container faqList">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+    <ol>
+      <li><h4>Login</h4> using your University of Hawaii account information.</li>
+      <li><h4>Set up your profile information:</h4> full name, picture, if you would like to notified by email.</li>
+      <li><h4>Create buy and sell offers</h4> based on your textbook needs.</li>
+      <li><h4>Check matches</h4> with other users to find buyers and sellers of your desired book.</li>
+    </ol>
+      </div>
+      <div class="col-sm-3"></div>
     </div>
   </div>
   {{/if}}
