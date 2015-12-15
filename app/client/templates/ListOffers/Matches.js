@@ -92,6 +92,25 @@ Template.Matches.helpers({
    */
   acceptedBuyOffers: function() {
     return SellOffers.find({creator: Meteor.user().profile.name, accepted: true});
+  },
+
+  checkDate: function (date) {
+    console.log(this);
+    var currDate = new Date();
+    var newDate = moment(date).format('ll, h:mm a');
+    if (date <= currDate) {
+      return newDate;
+    }
+    return newDate;
+  },
+
+  isExpired: function (date) {
+    var currDate = new Date();
+    console.log(date + " our date");
+    if (date.getTime() <= currDate.getTime()) {
+      return true;
+    }
+    return false;
   }
 });
 

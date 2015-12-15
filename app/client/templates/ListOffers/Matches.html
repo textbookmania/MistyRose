@@ -49,7 +49,11 @@
             {{#each buyOfferList}}
             <tr>
               <td>{{title}}</td>
+                {{#if isExpired expiration}}
+                    <td style="color: red">{{localizedDateAndTime expiration}}</td>
+                {{else}}
                 <td>{{localizedDateAndTime expiration}}</td>
+                {{/if}}
               <td><button type="button" href="{{pathFor 'EditBuyOffers'}}" class="editBuyOffer btn btn-sm btn-info"><i class="fa fa-pencil"></i></button></td>
               <td><button type="button" href="{{pathFor 'EditBuyOffers'}}"
                           class="btn deleteBuyOffer btn-info btn-sm"><i class="fa fa-trash"></i>
