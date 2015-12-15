@@ -106,7 +106,6 @@ Template.Matches.helpers({
 
   isExpired: function (date) {
     var currDate = new Date();
-    console.log(date + " our date");
     if (date.getTime() <= currDate.getTime()) {
       return true;
     }

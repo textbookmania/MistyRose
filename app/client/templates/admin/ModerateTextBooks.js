@@ -103,5 +103,13 @@ Template.bookElement.helpers({
    */
   listAllSellOffers: function(){
     return SellOffers.find({title: this.title, accepted: false});
+  },
+
+  isExpired: function (date) {
+    var currDate = new Date();
+    if (date.getTime() <= currDate.getTime()) {
+      return true;
+    }
+    return false;
   }
 });

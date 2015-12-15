@@ -83,7 +83,13 @@
                       <tr>
                         <td>{{condition}} </td>
                         <td>{{price}}</td>
-                        <td>{{formatDate expiration}}</td>
+
+                          {{#if isExpired expiration}}
+                              <td style="color: red">{{localizedDateAndTime expiration}}</td>
+                          {{else}}
+                              <td>{{localizedDateAndTime expiration}}</td>
+                          {{/if}}
+
                       </tr>
                       {{/each}}
                       </tbody>
@@ -103,7 +109,11 @@
                       <tr>
                         <td>{{condition}} </td>
                         <td>{{price}}</td>
-                        <td>{{formatDate expiration}}</td>
+                          {{#if isExpired expiration}}
+                              <td style="color: red">{{localizedDateAndTime expiration}}</td>
+                          {{else}}
+                              <td>{{localizedDateAndTime expiration}}</td>
+                          {{/if}}
                       </tr>
                       {{/each}}
                       </tbody>

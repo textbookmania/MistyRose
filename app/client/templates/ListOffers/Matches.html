@@ -124,7 +124,11 @@
             {{#each sellOfferList}}
             <tr>
               <td>{{title}}</td>
-                <td>{{localizedDateAndTime expiration}}</td>
+                {{#if isExpired expiration}}
+                    <td style="color: red">{{localizedDateAndTime expiration}}</td>
+                {{else}}
+                    <td>{{localizedDateAndTime expiration}}</td>
+                {{/if}}
               <td><button type="button" href="{{pathFor 'EditBuyOffers'}}" class="editSellOffer btn btn-sm btn-info"><i class="fa fa-pencil"></i></button></td>
               <td><button type="button"
                           class="btn deleteSellOffer btn-info btn-sm"><i class="fa fa-trash"></i>
