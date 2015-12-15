@@ -56,7 +56,6 @@ Meteor.methods({
     Images.update({user: Meteor.user().profile.name}, {$set: {image: doc.image}}, {validate: false});
     Images.update({user: Meteor.user().profile.name}, {$set: {contact: doc.contact}}, {validate: false});
 
-    sweetAlert("Profile has been updated.");
   }
 
 });
