@@ -17,10 +17,7 @@ Meteor.methods({
     doc.accepted = false;
     check(doc, BuyOffers.simpleSchema());
 
-    BuyOffers.insert(doc, function(docID) {
-      Meteor.setTimeout(BuyOffers.remove(docID), 7000);
-    });
-
+    BuyOffers.insert(doc);
   },
   /**
    * Invoked by AutoForm to update offers record.
@@ -152,6 +149,11 @@ BuyOffers.attachSchema(new SimpleSchema({
   seller: {
     type:String,
     optional:true
+  },
+
+  expired:{
+    type: Boolean,
+    optional: true
   }
 
 }));
