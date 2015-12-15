@@ -1,0 +1,34 @@
+
+{
+  "cas": {
+    "baseUrl": "https://cas-test.its.hawaii.edu/cas/",
+    "autoClose": true
+  },
+  "public": {
+    "cas": {
+      "loginUrl": "https://cas-test.its.hawaii.edu/cas/login",
+      "serviceParam": "service",
+      "popupWidth": 810,
+      "popupHeight": 610
+    },
+    "CLOUDINARY_API_KEY": "461774631211362",
+    "CLOUDINARY_CLOUD_NAME": "dpitlfrjy"
+  },
+
+
+  "CLOUDINARY_API_SECRET": "zBqhGrAUCrjvQuwP0BxQ0NGbSgk"
+
+  ,
+  "allowedUsers": [
+    "jgarces",
+    "mkshimod",
+    "chumeda",
+    "johnson"
+  ],
+
+  "adminUsers": [
+    "chumeda",
+    "jgarces",
+    "johnson"
+  ]
+}
