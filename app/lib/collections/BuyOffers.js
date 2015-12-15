@@ -149,11 +149,6 @@ BuyOffers.attachSchema(new SimpleSchema({
   seller: {
     type:String,
     optional:true
-  },
-
-  expired:{
-    type: Boolean,
-    optional: true
   }
 
 }));
