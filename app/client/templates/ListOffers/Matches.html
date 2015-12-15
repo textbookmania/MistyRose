@@ -49,7 +49,7 @@
             {{#each buyOfferList}}
             <tr>
               <td>{{title}}</td>
-                <td>{{expiration}}</td>
+                <td>{{localizedDateAndTime expiration}}</td>
               <td><button type="button" href="{{pathFor 'EditBuyOffers'}}" class="editBuyOffer btn btn-sm btn-info"><i class="fa fa-pencil"></i></button></td>
               <td><button type="button" href="{{pathFor 'EditBuyOffers'}}"
                           class="btn deleteBuyOffer btn-info btn-sm"><i class="fa fa-trash"></i>
@@ -120,7 +120,7 @@
             {{#each sellOfferList}}
             <tr>
               <td>{{title}}</td>
-                <td>{{expiration}}</td>
+                <td>{{localizedDateAndTime expiration}}</td>
               <td><button type="button" href="{{pathFor 'EditBuyOffers'}}" class="editSellOffer btn btn-sm btn-info"><i class="fa fa-pencil"></i></button></td>
               <td><button type="button"
                           class="btn deleteSellOffer btn-info btn-sm"><i class="fa fa-trash"></i>
